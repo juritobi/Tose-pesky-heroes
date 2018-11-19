@@ -124,6 +124,11 @@ public class _CoreStateMachine : MonoBehaviour {
                 Player.TakeDamage(Player.getHp() - Player.getMaxHp());
                 Player.Usemp(Player.getMp() - Player.getMaxMp());
             }
+            else if (type == "objeto")
+            {
+                Player.TakeDamage(Player.getHp() - Player.getMaxHp());
+                Player.Usemp(Player.getMp() - Player.getMaxMp());
+            }
             //currentState = (BattleStates)(((int)currentState + 1)%5);
             Player_turn = false;
 
