@@ -10,6 +10,7 @@ public class main : MonoBehaviour {
 	public hero heroe1; public hero heroe2; public hero heroe3;
 	public Button ataque;
 	public Button habilidad;
+	public Button mostrarobjetos;
 
 	public enum BattleStates
     {
@@ -27,15 +28,16 @@ public class main : MonoBehaviour {
 		currentState = BattleStates.ENEMYC;
 		ataque.onClick.AddListener(ataqueClick);
 		habilidad.onClick.AddListener(habilidadClick);
+		mostrarobjetos.onClick.AddListener(muestraClick);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		switch (currentState){
 			case (BattleStates.ENEMYC):
 				Debug.Log("Turno Enemigo");
 				break;
-			
+
 			case (BattleStates.PLAYER1C):
 				Debug.Log("Turno Player1");
 				//StartCoroutine(waiter());
@@ -43,13 +45,13 @@ public class main : MonoBehaviour {
 				heroe1.attack(enemigo,2);
 				currentState = BattleStates.PLAYER2C;
 				break;
-			
+
 			case (BattleStates.PLAYER2C):
 				Debug.Log("Turno Player2");
 				heroe2.attack(enemigo,1);
 				currentState = BattleStates.PLAYER3C;
 				break;
-			
+
 			case (BattleStates.PLAYER3C):
 				Debug.Log("Turno Player3");
 				heroe3.attack(enemigo,1);
@@ -113,6 +115,9 @@ public class main : MonoBehaviour {
 				currentState = BattleStates.PLAYER1C;
 			}
 		}
+	}
+	void muestraClick(){
+		Debug.Log("jajaj");
 	}
 	IEnumerator waiter(){
 		yield return new WaitForSeconds(15);
