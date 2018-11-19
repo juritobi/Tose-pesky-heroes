@@ -97,7 +97,7 @@ public class _CoreStateMachine : MonoBehaviour {
                 if (Player.getMp() >= 60)
                 {
                     Player.Usemp(60);
-                    Enemy.takeDamage(Player.damageattack1());
+                    
                     Enemy2.takeDamage(60);
                     Debug.Log("magic");
                     currentState = BattleStates.ENEMYCHOICE;

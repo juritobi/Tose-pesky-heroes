@@ -46,14 +46,14 @@ public class player_health : MonoBehaviour {
         return current_mp;
     }
 
-
+    /*
     public int damageattack1()
     {
         float isCrit = Random.Range(0f,2f);
         if (isCrit >= critChance) ;
         return attack1;
     }
-
+    */
     public void TakeDamage(int amount)
     {
        amount -= amount * 2 / 3;
