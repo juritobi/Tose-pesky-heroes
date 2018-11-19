@@ -37,6 +37,7 @@ public class PersonajeControlado : MonoBehaviour {
 
     // Update is called once per frame
     void Update() { }
+
     public float potenciaataque(float pot)
         {
             danoactual = danoactual + pot;
