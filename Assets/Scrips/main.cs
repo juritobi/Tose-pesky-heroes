@@ -10,7 +10,6 @@ public class main : MonoBehaviour {
 	public hero heroe1; public hero heroe2; public hero heroe3;
 	public Button ataque;
 	public Button habilidad;
-	public Button mostrarobjetos;
 
 	public enum BattleStates
     {
@@ -28,7 +27,6 @@ public class main : MonoBehaviour {
 		currentState = BattleStates.ENEMYC;
 		ataque.onClick.AddListener(ataqueClick);
 		habilidad.onClick.AddListener(habilidadClick);
-		mostrarobjetos.onClick.AddListener(muestraClick);
 	}
 
 	// Update is called once per frame
@@ -115,9 +113,6 @@ public class main : MonoBehaviour {
 				currentState = BattleStates.PLAYER1C;
 			}
 		}
-	}
-	void muestraClick(){
-		Debug.Log("jajaj");
 	}
 	IEnumerator waiter(){
 		yield return new WaitForSeconds(15);
