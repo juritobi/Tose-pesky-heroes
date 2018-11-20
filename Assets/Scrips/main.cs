@@ -7,6 +7,7 @@ using TMPro;
 
 public class main : MonoBehaviour {
 	public enemy enemigo;
+	//public Object[] heroes= FindObjectsOfType(Type hero);
 	public hero heroe1; public hero heroe2; public hero heroe3;
 	public Button ataque;
 	public Button habilidad;
@@ -58,7 +59,6 @@ public class main : MonoBehaviour {
 		}
 		//ataque.onClick.AddListener(ataqueClick);
 	}
-
 	void ataqueClick(){
 		if(currentState==BattleStates.ENEMYC){
 			if(heroe1.clicked==true){

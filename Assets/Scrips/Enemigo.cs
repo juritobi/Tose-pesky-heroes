@@ -20,7 +20,7 @@ public class Enemigo : MonoBehaviour
 
     public float danobase = 15;
     private float danoactual;
-    
+
 
     // Use this for initialization
     void Start()
@@ -42,13 +42,13 @@ public class Enemigo : MonoBehaviour
 
     public float ataquebasico()
     {
-        
+
         float dano = 0;
-        
-        
+
+
             dano = (danoactual);
 
-        
+
         return dano;
 
 
@@ -56,7 +56,7 @@ public class Enemigo : MonoBehaviour
     }
     public float recibirdano(float dan)
     {
-     
+
 
         vidaactual = vidaactual - ((1/3)*dan);
         return vidaactual;
@@ -79,11 +79,10 @@ public class Enemigo : MonoBehaviour
     {
         return vidaactual;
     }
-  
+
 
     public float aumentaDefensa(float def)
     {
-       
         defensactual = defensactual + def;
         return defensactual;
     }
@@ -91,7 +90,7 @@ public class Enemigo : MonoBehaviour
     {
         return defensactual;
     }
-   
+
 
 
 }
