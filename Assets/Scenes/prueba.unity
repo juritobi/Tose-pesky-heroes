@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf40c2e91fbc48c4282dd6dd76fffeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigo: {fileID: 0}
+  enemigo: {fileID: 1734180632}
   heroe1: {fileID: 1709496282}
   heroe2: {fileID: 1439137649}
   heroe3: {fileID: 1734557931}
