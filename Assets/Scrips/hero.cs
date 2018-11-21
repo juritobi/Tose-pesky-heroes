@@ -18,7 +18,7 @@ public class hero : MonoBehaviour {
 		clicked = false;
 		dead = false;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		barH.value=health;
