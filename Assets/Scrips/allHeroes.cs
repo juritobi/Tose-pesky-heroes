@@ -23,7 +23,6 @@ public class allHeroes : MonoBehaviour {
 
   		if(atc==2){
   			e.recibeDamage(50);
-  			h.mana-=25;
   		}
     }
 	}
