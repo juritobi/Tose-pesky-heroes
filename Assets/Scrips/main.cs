@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
 using TMPro;
 
 public class main : MonoBehaviour {
 	public enemy enemigo;
 	//public Object[] heroes= FindObjectsOfType(Type hero);
 	public hero heroe1; public hero heroe2; public hero heroe3;
+	public hero[] all;
 	public Button ataque;
 	public Button habilidad;
 
@@ -25,6 +27,7 @@ public class main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		all = FindObjectsOfType<hero>();
 		currentState = BattleStates.ENEMYC;
 		ataque.onClick.AddListener(ataqueClick);
 		habilidad.onClick.AddListener(habilidadClick);
@@ -38,9 +41,7 @@ public class main : MonoBehaviour {
 				break;
 
 			case (BattleStates.PLAYER1C):
-				Debug.Log("Turno Player1");
-				//StartCoroutine(waiter());
-				waiter();
+				Debug.Log("Turno Player1");	
 				heroe1.attack(enemigo,2);
 				currentState = BattleStates.PLAYER2C;
 				break;
@@ -61,56 +62,28 @@ public class main : MonoBehaviour {
 	}
 	void ataqueClick(){
 		if(currentState==BattleStates.ENEMYC){
-			if(heroe1.clicked==true){
-				enemigo.attack(heroe1,1);
-				heroe1.clicked=false;
-				heroe2.clicked=false;
-				heroe3.clicked=false;
-				currentState = BattleStates.PLAYER1C;
-			}
-
-			if(heroe2.clicked==true){
-				enemigo.attack(heroe2,1);
-				heroe1.clicked=false;
-				heroe2.clicked=false;
-				heroe3.clicked=false;
-				currentState = BattleStates.PLAYER1C;
-			}
-
-			if(heroe3.clicked==true){
-				enemigo.attack(heroe3,1);
-				heroe1.clicked=false;
-				heroe2.clicked=false;
-				heroe3.clicked=false;
-				currentState = BattleStates.PLAYER1C;
+			foreach (hero h in all) {
+				if(h.clicked==true){
+					enemigo.attack(h,1);
+					foreach (hero h2 in all) {
+						h2.clicked=false;
+					}
+					currentState = BattleStates.PLAYER1C;
+				}
 			}
 		}
 	}
 
 	void habilidadClick(){
 		if(currentState==BattleStates.ENEMYC){
-			if(heroe1.clicked==true){
-				enemigo.attack(heroe1,2);
-				heroe1.clicked=false;
-				heroe2.clicked=false;
-				heroe3.clicked=false;
-				currentState = BattleStates.PLAYER1C;
-			}
-
-			if(heroe2.clicked==true){
-				enemigo.attack(heroe2,2);
-				heroe1.clicked=false;
-				heroe2.clicked=false;
-				heroe3.clicked=false;
-				currentState = BattleStates.PLAYER1C;
-			}
-
-			if(heroe3.clicked==true){
-				enemigo.attack(heroe3,2);
-				heroe1.clicked=false;
-				heroe2.clicked=false;
-				heroe3.clicked=false;
-				currentState = BattleStates.PLAYER1C;
+			foreach (hero h in all) {
+				if(h.clicked==true){
+					enemigo.attack(h,2);
+					foreach (hero h2 in all) {
+						h2.clicked=false;
+					}
+					currentState = BattleStates.PLAYER1C;
+				}
 			}
 		}
 	}
