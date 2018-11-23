@@ -2647,7 +2647,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barH: {fileID: 1714218649}
+  maxHealth: 0
   health: 0
+  defensa: 0
   clicked: 0
   dead: 0
   h1: {fileID: 408087320}
@@ -3258,7 +3260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barH: {fileID: 123407339}
+  maxHealth: 0
   health: 0
+  defensa: 0
   clicked: 0
   dead: 0
   h1: {fileID: 251127863}
@@ -3578,7 +3582,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barH: {fileID: 813684698}
+  maxHealth: 1
   health: 0
+  defensa: 1
   clicked: 0
   dead: 0
   h1: {fileID: 888454741}

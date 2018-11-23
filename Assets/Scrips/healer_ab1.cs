@@ -13,7 +13,7 @@ public class healer_ab1 : Ability {
 			}
 		}
 
-		heroe.recibeCuracion(50);
+		heroe.cambiaVida(-50);
 		coolDown = 2;
 	}
 }

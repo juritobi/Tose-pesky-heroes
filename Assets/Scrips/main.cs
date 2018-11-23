@@ -104,7 +104,7 @@ public class main : MonoBehaviour {
 			if(a.coolDown>0){
 				a.coolDown-=1;
 			}
-		}		
+		}
 	}
 	IEnumerator waiter(){
 		yield return new WaitForSeconds(15);

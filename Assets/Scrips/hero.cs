@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class hero : MonoBehaviour {
 	public Slider barH;
+	public int maxHealth;
 	public int health;
+	public int defensa;
 	public bool clicked;
 	public bool dead;
 
 	// Use this for initialization
 	void Start () {
-		health = 100;
+		maxHealth=100;
+		health = maxHealth;
 		clicked = false;
 		dead = false;
 	}
@@ -35,20 +38,22 @@ public class hero : MonoBehaviour {
 		}
 	}
 
-	public void recibeDamage(int n){
-		health-=n;
-		if(health<=0){
-			health = 0;
+	public void cambiaVida(int cantidad){
+		if (cantidad>0) {
+			health-=cantidad+defensa;
+			if(health<0){
+				health = 0;
+			}
+		}
+		else{
+			health-=cantidad;
+			if(health>maxHealth){
+				health=maxHealth;
+			}
 		}
 	}
 
-	public void recibeCuracion(int n){
-		health+=n;
-		if(health>100){
-			health = 100;
-		}
-	}
-	
+
 	public void MyDelay( int seconds ){
   		DateTime dt = DateTime.Now + TimeSpan.FromSeconds( seconds );
 		do {} while ( DateTime.Now <dt );

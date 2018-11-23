@@ -6,7 +6,7 @@ public class healer_ab2 : Ability {
 
 	public void use(hero[] all){
 		foreach (hero h in all) {
-			h.recibeCuracion(20);
+			h.cambiaVida(-20);
 			coolDown = 6;
 		}
 	}

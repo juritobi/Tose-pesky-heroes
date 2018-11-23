@@ -29,11 +29,11 @@ public class enemy : MonoBehaviour {
 
 	public void attack(hero h, int atc){
 		if(atc==1){
-			h.recibeDamage(25);
+			h.cambiaVida(25);
 		}
 
 		if(atc==2){
-			h.recibeDamage(50);
+			h.cambiaVida(50);
 			mana-=25;
 		}
 	}

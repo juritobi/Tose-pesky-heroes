@@ -25,5 +25,4 @@ public class dps : hero {
 		e.recibeDamage(15);
 	}
 
-	
 }
