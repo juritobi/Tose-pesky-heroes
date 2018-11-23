@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 
 public class hero : MonoBehaviour {
@@ -39,6 +40,18 @@ public class hero : MonoBehaviour {
 		if(health<=0){
 			health = 0;
 		}
+	}
+
+	public void recibeCuracion(int n){
+		health+=n;
+		if(health>100){
+			health = 100;
+		}
+	}
+	
+	public void MyDelay( int seconds ){
+  		DateTime dt = DateTime.Now + TimeSpan.FromSeconds( seconds );
+		do {} while ( DateTime.Now <dt );
 	}
 
 	void OnMouseDown(){
