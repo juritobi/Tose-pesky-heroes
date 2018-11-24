@@ -8,7 +8,7 @@ using System;
 using TMPro;
 
 public class main : MonoBehaviour {
-	public jugador enemigo;
+	public personaje player;
 	//public Object[] heroes= FindObjectsOfType(Type hero);
 	public npc dps; public npc tank; public npc healer;
 	public npc[] all;
@@ -29,10 +29,9 @@ public class main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		all = FindObjectsOfType<npc>();
+        all = FindObjectsOfType<npc>();
 		ab = FindObjectsOfType<Ability>();
 		int n = ab.Length;
-		Debug.Log(n);
 		currentState = BattleStates.ENEMYC;
 		ataque.onClick.AddListener(ataqueClick);
 		habilidad.onClick.AddListener(habilidadClick);
@@ -47,25 +46,23 @@ public class main : MonoBehaviour {
 
 			case (BattleStates.PLAYER1C):
 				Debug.Log("Turno Player1");
-				tank tk = (tank) tank;
-				tk.decision(enemigo);
+				//tank tk = (tank) tank;
+				player.cambiaHp(30);
 				currentState = BattleStates.PLAYER2C;
 				break;
 
 			case (BattleStates.PLAYER2C):
-				dps.MyDelay(1);
 				Debug.Log("Turno Player2");
-				dps dp = (dps) dps;
-				dp.decision(enemigo);
-				currentState = BattleStates.PLAYER3C;
+                //dps dp = (dps) dps;
+                player.cambiaHp(300);
+                currentState = BattleStates.PLAYER3C;
 				break;
 
 			case (BattleStates.PLAYER3C):
-				dps.MyDelay(1);
 				Debug.Log("Turno Player3");
-				healer hl = (healer) healer;
-				hl.decision(all);
-				currentState = BattleStates.ENEMYC;
+                //healer hl = (healer) healer;
+                all[0].cambiaHp(-5);
+                currentState = BattleStates.ENEMYC;
 				checkCd(ab);
 				break;
 		}
@@ -74,9 +71,9 @@ public class main : MonoBehaviour {
 	void ataqueClick(){
 		if(currentState==BattleStates.ENEMYC){
 			foreach (npc h in all) {
-				Debug.Log(all+" h "+h+" enemigo "+enemigo);
 				if(h.clicked==true){
-					enemigo.attack(h,1);
+                    h.cambiaHp(25);
+                    Debug.Log(h);
 					foreach (npc h2 in all) {
 						h2.clicked=false;
 					}
@@ -90,8 +87,8 @@ public class main : MonoBehaviour {
 		if(currentState==BattleStates.ENEMYC){
 			foreach (npc h in all) {
 				if(h.clicked==true){
-					enemigo.attack(h,2);
-					foreach (npc h2 in all) {
+                    h.cambiaHp(50);
+                    foreach (npc h2 in all) {
 						h2.clicked=false;
 					}
 					currentState = BattleStates.PLAYER1C;

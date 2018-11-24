@@ -6,7 +6,7 @@ public class healer_ab2 : Ability {
 
 	public void use(npc[] all){
 		foreach (npc h in all) {
-			h.RecibeAtaque(-20, null);
+			h.cambiaHp(-20);
 			coolDown = 6;
 		}
 	}

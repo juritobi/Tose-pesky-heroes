@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class dps : npc {
-	public Ability h1, h2;
+
+
+    public void decision(personaje e)
+    {
+        flechaEnvenenada(e);
+    }
 
 
 
-	public void flechaEnvenenada(){
-		base.enemigo.recibeAtaque(20, new string[] {"veneno"});
+    public void flechaEnvenenada(personaje e){
+		e.cambiaHp(300);
 	}
-	public void basico(){
-		base.enemigo.recibeAtaque(200, null);
+	public void basico(personaje e)
+    {
+		e.cambiaHp(200);
 	}
-	public void mucho(){
-		base.enemigo.recibeAtaque(200, null);
-	}
-
-	public void decision(jugador e){
-		flechaEnvenenada();
+	public void mucho(personaje e)
+    {
+		e.cambiaHp(200);
 	}
 
-	public void basicAttack(jugador e){
-		e.recibeDamage(15);
-	}
+	
 
 }

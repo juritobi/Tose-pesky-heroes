@@ -6,7 +6,7 @@ public class tank : npc {
 
 	public Ability h1, h2;
 
-	public void decision(jugador e){
+	public void decision(personaje e){
 		if(h2.coolDown==0){
 			tank_ab2 hab2 = (tank_ab2) h2;
 			hab2.use(e);
@@ -22,8 +22,8 @@ public class tank : npc {
 		}
 	}
 
-	public void basicAttack(jugador e){
-		e.recibeDamage(15);
+	public void basicAttack(personaje e){
+		e.cambiaHp(15);
 	}
 
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class dps_ab1 : Ability {
 
-	public void use(jugador e){
-		e.recibeDamage(100);
+	public void use(personaje e){
+		e.cambiaHp(100);
 		coolDown = 3;
 	}
 }

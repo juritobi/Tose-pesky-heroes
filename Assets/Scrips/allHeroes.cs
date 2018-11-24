@@ -18,20 +18,20 @@ public class allHeroes : MonoBehaviour {
 	public void attack(jugador e, int atc){
     foreach (npc h in all) {
       if(atc==1){
-  			e.recibeDamage(25);
+  			e.cambiaHp(25);
   		}
 
   		if(atc==2){
-  			e.recibeDamage(50);
+  			e.cambiaHp(50);
   		}
     }
 	}
 
 	public void recibeDamage(int n){
     foreach (npc h in all) {
-      h.health-=n;
-      if(h.health<=0){
-  			h.health = 0;
+      h.hp-=n;
+      if(h.hp<=0){
+  			h.hp = 0;
   		}
     }
 	}
