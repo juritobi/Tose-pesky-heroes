@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class tank_ab2 : Ability {
 
-	public void use(enemy e){
+	public void use(jugador e){
 		e.recibeDamage(100);
 		coolDown = 5;
 	}

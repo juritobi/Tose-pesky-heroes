@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 123407338}
   - component: {fileID: 123407339}
   m_Layer: 5
-  m_Name: hero1_hp
+  m_Name: npc1_hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 265896761}
   - component: {fileID: 265896762}
   m_Layer: 0
-  m_Name: heores
+  m_Name: npcs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 449896745}
   - component: {fileID: 449896746}
   m_Layer: 5
-  m_Name: enemy_hp
+  m_Name: jugador_hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 661266676}
   - component: {fileID: 661266677}
   m_Layer: 5
-  m_Name: enemy_mana
+  m_Name: jugador_mana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1262,7 +1262,7 @@ GameObject:
   - component: {fileID: 813684697}
   - component: {fileID: 813684698}
   m_Layer: 5
-  m_Name: hero3_hp
+  m_Name: npc3_hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3289,7 +3289,7 @@ GameObject:
   - component: {fileID: 1714218648}
   - component: {fileID: 1714218649}
   m_Layer: 5
-  m_Name: hero2_hp
+  m_Name: npc2_hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3408,7 +3408,7 @@ GameObject:
   - component: {fileID: 1734180631}
   - component: {fileID: 1734180632}
   m_Layer: 0
-  m_Name: Enemigo
+  m_Name: jugador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3481,7 +3481,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1734180629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc14b524a99700418b2d46e1286cdb4, type: 3}
+  m_Script: {fileID: 11500000, guid: 47be8595f9fa46a458eb27a501051efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   barH: {fileID: 449896746}

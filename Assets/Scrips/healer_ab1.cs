@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class healer_ab1 : Ability {
-	hero heroe;
+	npc heroe;
 	int min = 100;
-	public void use(hero[] all){
-		foreach (hero h in all) {
+	public void use(npc[] all){
+		foreach (npc h in all) {
 			if(h.health<min){
 				min = h.health;
 				heroe = h;
 			}
 		}
 
-		heroe.cambiaVida(-50);
+		heroe.RecibeAtaque(-50,null);
 		coolDown = 2;
 	}
 }

@@ -8,10 +8,10 @@ using System;
 using TMPro;
 
 public class main : MonoBehaviour {
-	public enemy enemigo;
+	public jugador enemigo;
 	//public Object[] heroes= FindObjectsOfType(Type hero);
-	public hero dps; public hero tank; public hero healer;
-	public hero[] all;
+	public npc dps; public npc tank; public npc healer;
+	public npc[] all;
 	public Ability[] ab;
 	public Button ataque;
 	public Button habilidad;
@@ -29,7 +29,7 @@ public class main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		all = FindObjectsOfType<hero>();
+		all = FindObjectsOfType<npc>();
 		ab = FindObjectsOfType<Ability>();
 		int n = ab.Length;
 		Debug.Log(n);
@@ -73,10 +73,11 @@ public class main : MonoBehaviour {
 	}
 	void ataqueClick(){
 		if(currentState==BattleStates.ENEMYC){
-			foreach (hero h in all) {
+			foreach (npc h in all) {
+				Debug.Log(all+" h "+h+" enemigo "+enemigo);
 				if(h.clicked==true){
 					enemigo.attack(h,1);
-					foreach (hero h2 in all) {
+					foreach (npc h2 in all) {
 						h2.clicked=false;
 					}
 					currentState = BattleStates.PLAYER1C;
@@ -87,10 +88,10 @@ public class main : MonoBehaviour {
 
 	void habilidadClick(){
 		if(currentState==BattleStates.ENEMYC){
-			foreach (hero h in all) {
+			foreach (npc h in all) {
 				if(h.clicked==true){
 					enemigo.attack(h,2);
-					foreach (hero h2 in all) {
+					foreach (npc h2 in all) {
 						h2.clicked=false;
 					}
 					currentState = BattleStates.PLAYER1C;

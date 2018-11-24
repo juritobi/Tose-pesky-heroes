@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class healer_ab2 : Ability {
 
-	public void use(hero[] all){
-		foreach (hero h in all) {
-			h.cambiaVida(-20);
+	public void use(npc[] all){
+		foreach (npc h in all) {
+			h.RecibeAtaque(-20, null);
 			coolDown = 6;
 		}
 	}

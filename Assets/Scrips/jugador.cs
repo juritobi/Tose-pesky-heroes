@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class enemy : MonoBehaviour {
+public class jugador : MonoBehaviour {
 	public Slider barH;
 	public Slider barM;
 	public int defensa;
@@ -27,13 +27,13 @@ public class enemy : MonoBehaviour {
 		barM.value=mana;
 	}
 
-	public void attack(hero h, int atc){
+	public void attack(npc h, int atc){
 		if(atc==1){
-			h.cambiaVida(25);
+			h.RecibeAtaque(25, null);
 		}
 
 		if(atc==2){
-			h.cambiaVida(50);
+			h.RecibeAtaque(50, null);
 			mana-=25;
 		}
 	}

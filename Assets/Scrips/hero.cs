@@ -4,18 +4,24 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class hero : MonoBehaviour {
+
+
+
+
+public class npc : MonoBehaviour {
 	public Slider barH;
 	public int maxHealth;
 	public int health;
 	public int defensa;
 	public bool clicked;
 	public bool dead;
+	protected List<string> estados;
 
 	// Use this for initialization
 	void Start () {
 		maxHealth=100;
 		health = maxHealth;
+		estados=new List<string>();
 		clicked = false;
 		dead = false;
 	}
@@ -28,7 +34,7 @@ public class hero : MonoBehaviour {
 		}
 	}
 
-	public void attack(enemy e, int atc){
+	public void attack(jugador e, int atc){
 		if(atc==1){
 			e.recibeDamage(25);
 		}
@@ -38,7 +44,7 @@ public class hero : MonoBehaviour {
 		}
 	}
 
-	public void cambiaVida(int cantidad){
+	public void RecibeAtaque(int cantidad, string[] states){
 		if (cantidad>0) {
 			health-=cantidad+defensa;
 			if(health<0){
@@ -51,6 +57,15 @@ public class hero : MonoBehaviour {
 				health=maxHealth;
 			}
 		}
+		if (states!=null) {
+			foreach (string e in states) {
+				estados.Add(e);
+			}
+		}
+	}
+
+	public void eliminaEstado(string state){
+		estados.Remove(state);
 	}
 
 
