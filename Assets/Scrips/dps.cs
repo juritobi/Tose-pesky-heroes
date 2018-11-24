@@ -5,20 +5,20 @@ using UnityEngine;
 public class dps : npc {
 	public Ability h1, h2;
 
+
+
+	public void flechaEnvenenada(){
+		base.enemigo.recibeAtaque(20, new string[] {"veneno"});
+	}
+	public void basico(){
+		base.enemigo.recibeAtaque(200, null);
+	}
+	public void mucho(){
+		base.enemigo.recibeAtaque(200, null);
+	}
+
 	public void decision(jugador e){
-		if(h2.coolDown==0){
-			dps_ab2 hab2 = (dps_ab2) h2;
-			hab2.use(e);
-		}
-
-		else if(h1.coolDown==0){
-			dps_ab1 hab1 = (dps_ab1) h1;
-			hab1.use(e);
-		}
-
-		else{
-			basicAttack(e);
-		}
+		flechaEnvenenada();
 	}
 
 	public void basicAttack(jugador e){

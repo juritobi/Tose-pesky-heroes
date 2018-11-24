@@ -8,17 +8,20 @@ public class jugador : MonoBehaviour {
 	public Slider barH;
 	public Slider barM;
 	public int defensa;
-	public int vidabase;
+	public int maxHealth;
 	public int manabase;
 	public int health;
 	public int mana;
+	protected List<string> estados;
+
 
 	// Use this for initialization
 	void Start () {
-		vidabase =2500;
+		maxHealth =2500;
 		manabase =100;
 		health = 2500;
 		mana = 100;
+		estados=new List<string>();
 	}
 
 	// Update is called once per frame
@@ -38,6 +41,26 @@ public class jugador : MonoBehaviour {
 		}
 	}
 
+	public void recibeAtaque(int cantidad, string[] states){
+		if (cantidad>0) {
+			health-=cantidad+defensa;
+			if(health<0){
+				health = 0;
+			}
+		}
+		else{
+			health-=cantidad;
+			if(health>maxHealth){
+				health=maxHealth;
+			}
+		}
+		if (states!=null) {
+			foreach (string e in states) {
+				estados.Add(e);
+			}
+		}
+	}
+
 	public void recibeDamage(int n){
 		health-=n;
 		if(health<0){
@@ -48,9 +71,9 @@ public class jugador : MonoBehaviour {
 	public void recibeCuracion(int c)
 	{
 			health = health + c;
-			if (health >=vidabase)
+			if (health >=maxHealth)
 			{
-					health = vidabase;
+					health = maxHealth;
 			}
 	}
 	public void recibeMana(int c)

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 
 public class npc : MonoBehaviour {
+	public jugador enemigo;
 	public Slider barH;
 	public int maxHealth;
 	public int health;
@@ -19,6 +20,7 @@ public class npc : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		enemigo = (jugador)FindObjectOfType(typeof(jugador));
 		maxHealth=100;
 		health = maxHealth;
 		estados=new List<string>();
