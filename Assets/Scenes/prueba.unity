@@ -190,7 +190,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734180632}
+      - m_Target: {fileID: 0}
         m_MethodName: recibeCuracion
         m_Mode: 3
         m_Arguments:
@@ -1088,10 +1088,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf40c2e91fbc48c4282dd6dd76fffeb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigo: {fileID: 1734180632}
-  dps: {fileID: 1734557931}
-  tank: {fileID: 1709496282}
-  healer: {fileID: 1439137649}
+  player: {fileID: 1734180632}
+  dps: {fileID: 0}
+  tank: {fileID: 0}
+  healer: {fileID: 0}
   all: []
   ab: []
   ataque: {fileID: 1147723584}
@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734180632}
+      - m_Target: {fileID: 0}
         m_MethodName: recibeMana
         m_Mode: 3
         m_Arguments:
@@ -2643,17 +2643,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1439137646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4182a84e1661ea041b7acdd2a80fb2a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b450eb9cd41bb848a43cf62a5a95c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   barH: {fileID: 1714218649}
-  maxHealth: 0
-  health: 0
-  defensa: 0
+  mhp: 0
+  hp: 0
+  ad: 0
+  ap: 0
+  def: 0
+  mr: 0
   clicked: 0
-  dead: 0
-  h1: {fileID: 408087320}
-  h2: {fileID: 1266730811}
 --- !u!65 &1439137650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3179,7 +3179,7 @@ GameObject:
   - component: {fileID: 1709496281}
   - component: {fileID: 1709496280}
   - component: {fileID: 1709496283}
-  - component: {fileID: 1709496282}
+  - component: {fileID: 1709496284}
   m_Layer: 0
   m_Name: tank
   m_TagString: Untagged
@@ -3248,25 +3248,6 @@ Transform:
   m_Father: {fileID: 265896761}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1709496282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1709496279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d5b698087beac49b8c05665b294cf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barH: {fileID: 123407339}
-  maxHealth: 0
-  health: 0
-  defensa: 0
-  clicked: 0
-  dead: 0
-  h1: {fileID: 251127863}
-  h2: {fileID: 1547109355}
 --- !u!65 &1709496283
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3279,6 +3260,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 22.104486, y: 20.180332, z: 0.20000003}
   m_Center: {x: 0.72071487, y: 0.08960194, z: 0.00000000870395}
+--- !u!114 &1709496284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1709496279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b450eb9cd41bb848a43cf62a5a95c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barH: {fileID: 123407339}
+  mhp: 0
+  hp: 0
+  ad: 0
+  ap: 0
+  def: 0
+  mr: 0
+  clicked: 0
 --- !u!1 &1714218647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,12 +3485,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barH: {fileID: 449896746}
-  barM: {fileID: 661266677}
-  defensa: 0
-  vidabase: 0
-  manabase: 0
-  health: 0
-  mana: 0
+  mhp: 0
+  hp: 0
+  ad: 0
+  ap: 0
+  def: 0
+  mr: 0
 --- !u!1 &1734557928
 GameObject:
   m_ObjectHideFlags: 0
@@ -3578,17 +3578,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1734557928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6bbedec728caec45a1b54612141bc31, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b450eb9cd41bb848a43cf62a5a95c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   barH: {fileID: 813684698}
-  maxHealth: 1
-  health: 0
-  defensa: 1
+  mhp: 0
+  hp: 0
+  ad: 0
+  ap: 0
+  def: 0
+  mr: 0
   clicked: 0
-  dead: 0
-  h1: {fileID: 888454741}
-  h2: {fileID: 993954964}
 --- !u!65 &1734557932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3836,7 +3836,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1734180632}
+      - m_Target: {fileID: 0}
         m_MethodName: aumentaDefensa
         m_Mode: 3
         m_Arguments:
