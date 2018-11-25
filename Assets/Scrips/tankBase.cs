@@ -54,6 +54,6 @@ public class tankBase : npc
                 objetivo.cambiaHp(ad, 'f');
             }
         }
-        
     }
+    
 }

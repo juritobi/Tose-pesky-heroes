@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using Random = UnityEngine.Random;
 
 public class personaje : MonoBehaviour {
+    public GameObject damageText;
 	public Slider barH;
 	public int mhp;
 	public int hp;
@@ -52,6 +54,11 @@ public class personaje : MonoBehaviour {
 
         hp = hp - total;
 
+        if (total != 0)
+        {
+            muestraDaño(total);
+        }
+
         if (hp < 0)
         {
             muerto();
@@ -62,6 +69,20 @@ public class personaje : MonoBehaviour {
         }
 
 	}
+
+    public void muestraDaño(int i)
+    {
+        Vector3 pos = new Vector3 (transform.position.x, transform.position.y+1, transform.position.z-1) ;
+        var go=Instantiate(damageText, pos, Quaternion.identity, transform);
+        if (i < 0)
+        {
+            go.GetComponent<TextMesh>().color = Color.green;
+        }
+        go.GetComponent<TextMesh>().text = i.ToString();
+        
+        
+
+    }
     public void recibeEstado(string e,int turnos)
     {
         switch (e)

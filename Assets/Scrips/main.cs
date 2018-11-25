@@ -14,6 +14,7 @@ public class main : MonoBehaviour {
 	public npc[] all;
 	public Button ataque;
 	public Button habilidad;
+    public bool paused = false;
 
 	public enum BattleStates
     {
@@ -38,27 +39,40 @@ public class main : MonoBehaviour {
 	void Update () {
 		switch (currentState){
 			case (BattleStates.ENEMYC):
+                paused = false;
 				break;
 
 			case (BattleStates.PLAYER1C):
-                tankBase tk = (tankBase)tank;
-                tk.decision();
-                tk.restaCooldowns();
-				currentState = BattleStates.PLAYER2C;
-				break;
+                if (!paused)
+                {
+                    StartCoroutine(waiter());
+                    tankBase tk = (tankBase)tank;
+                    tk.decision();
+                    tk.restaCooldowns();
+                    paused=true;
+                }
+                break;
 
-			case (BattleStates.PLAYER2C):
-                arqueroBase dp = (arqueroBase)dps;
-                dp.decision();
-                dp.restaCooldowns();
-                currentState = BattleStates.PLAYER3C;
+            case (BattleStates.PLAYER2C):
+                if (paused)
+                {
+                    arqueroBase dp = (arqueroBase)dps;
+                    dp.decision();
+                    dp.restaCooldowns();
+                    StartCoroutine(waiter());
+                    paused = false;
+                }
 				break;
 
 			case (BattleStates.PLAYER3C):
-                healerBase h = (healerBase)healer;
-                h.decision();
-                h.restaCooldowns();
-                currentState = BattleStates.ENEMYC;
+                if (!paused)
+                {
+                    healerBase h = (healerBase)healer;
+                    h.decision();
+                    h.restaCooldowns();
+                    StartCoroutine(waiter());
+                    paused = true;
+                }
 				break;
 		}
 		//ataque.onClick.AddListener(ataqueClick);
@@ -72,8 +86,8 @@ public class main : MonoBehaviour {
                     foreach (npc h2 in all) {
 						h2.clicked=false;
 					}
-                    currentState = BattleStates.PLAYER1C;
-				}
+                    StartCoroutine(waiter());
+                }
 			}
 		}
 	}
@@ -87,12 +101,29 @@ public class main : MonoBehaviour {
                     foreach (npc h2 in all) {
 						h2.clicked=false;
 					}
-                    currentState = BattleStates.PLAYER1C;
-				}
+                    StartCoroutine(waiter());
+                }
 			}
 		}
 	}
 	IEnumerator waiter(){
-		yield return new WaitForSeconds(15);
-	}
+        yield return new WaitForSeconds(1);
+        if (currentState == BattleStates.ENEMYC)
+        {
+            currentState = BattleStates.PLAYER1C;
+        }
+        else if (currentState == BattleStates.PLAYER1C)
+        {
+            currentState = BattleStates.PLAYER2C;
+        }
+        else if (currentState == BattleStates.PLAYER2C)
+        {
+            currentState = BattleStates.PLAYER3C;
+        }
+        else if (currentState == BattleStates.PLAYER3C)
+        {
+            currentState = BattleStates.ENEMYC;
+        }
+        
+    }
 }
