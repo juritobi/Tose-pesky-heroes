@@ -6,23 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class jugador : personaje
 {
-    private int cosa;
-
-
-    // Use this for initialization
-    void Start()
+    protected override void Start()
     {
         mhp = 2000;
+        base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
-    public void hazcosas()
-    {
-        Debug.Log("yay");
-    }
+
 
 }
