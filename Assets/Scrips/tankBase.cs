@@ -8,6 +8,7 @@ public class tankBase : npc
 {
     protected override void Start()
     {
+
         mhp = 300;
         ad = 50;
         ap = 0;

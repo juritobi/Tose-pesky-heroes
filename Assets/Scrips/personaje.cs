@@ -19,6 +19,7 @@ public class personaje : MonoBehaviour {
 
 	// Use this for initialization
 	protected virtual void Start() {
+   
         hp = mhp;
         barH.maxValue = mhp;
 		estados=new List<string>();
@@ -32,43 +33,34 @@ public class personaje : MonoBehaviour {
     }
 
     public void cambiaHp(int c, char tipo){//tipos: m daño magico, f daño fisico, c curacion, t daño verdadero(ignora defensas)
+        int total;
+        switch (tipo)
+        {
+            case 'f': total = c - def;
+                if (total < 0) { total = 0; }
+                break;
+            case 'm': total = c - mr;
+                if (total < 0) { total = 0; }
+                break;
+            case 't': total = c;
+                break;
+            case 'c': total = -c;
+                if (total > 0) { total = 0; }
+                break;
+            default:total = 0;break;
+        }
 
-        if (tipo.Equals('f'))
+        hp = hp - total;
+
+        if (hp < 0)
         {
-            if (c - def > 0)
-            {
-                hp = hp - c + def;
-                if (hp < 0)
-                {
-                    hp = 0;
-                }
-            }
+            muerto();
         }
-        else if(tipo.Equals('m'))
+        else if (hp > mhp)
         {
-            if (c - mr > 0)
-            {
-                hp = hp - c + mr;
-                if (hp < 0)
-                {
-                    hp = 0;
-                }
-            }
-        }   
-        else if (tipo.Equals('t'))
-        {
-            hp = hp - c;
-            if (hp < 0)
-            {
-                hp = 0;
-            }
+            hp = mhp;
         }
-		else if(tipo.Equals('c')){
-			hp=hp+c;
-			if(hp>mhp){
-				hp=mhp;
-			}
-		}
+
 	}
     public void recibeEstado(string e,int turnos)
     {
@@ -116,6 +108,12 @@ public class personaje : MonoBehaviour {
             default: break;
         }
         estados.Remove(e);
+    }
+
+    public void muerto()
+    {
+        DestroyImmediate(barH.gameObject);
+        DestroyImmediate(this.gameObject);
     }
 
     public int getHp()

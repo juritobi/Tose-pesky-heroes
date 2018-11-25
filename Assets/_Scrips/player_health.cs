@@ -10,7 +10,7 @@ public class player_health : MonoBehaviour {
     public int maxmp = 100;
     private int current_mp;
     public const int attack1 = 10;
-    private float critChance = 0.1f;
+    //private float critChance = 0.1f;
     private float critMult = 1.3f; //base
 
 

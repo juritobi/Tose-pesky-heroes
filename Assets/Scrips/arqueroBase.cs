@@ -9,6 +9,7 @@ public class arqueroBase : npc
 {
     protected override void Start()
     {
+
         mhp = 200;
         ad = 80;
         ap = 0;
