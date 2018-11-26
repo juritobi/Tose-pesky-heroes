@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class personaje : MonoBehaviour {
     public GameObject damageText;
 	public Slider barH;
+    public GameObject imagen;
 	public int mhp;
 	public int hp;
 	public int ad;
@@ -57,6 +58,7 @@ public class personaje : MonoBehaviour {
         if (total != 0)
         {
             muestraDaño(total);
+            animacionDaño();
         }
 
         if (hp < 0)
@@ -70,6 +72,11 @@ public class personaje : MonoBehaviour {
 
 	}
 
+    public void animacionDaño()
+    {
+        imagen.GetComponent<Animator>().Play("recibeDaño",-1,0);
+    }
+
     public void muestraDaño(int i)
     {
         Vector3 pos = new Vector3 (transform.position.x, transform.position.y+1, transform.position.z-1) ;
@@ -77,6 +84,7 @@ public class personaje : MonoBehaviour {
         if (i < 0)
         {
             go.GetComponent<TextMesh>().color = Color.green;
+            i = -i;
         }
         go.GetComponent<TextMesh>().text = i.ToString();
         
@@ -130,6 +138,8 @@ public class personaje : MonoBehaviour {
         }
         estados.Remove(e);
     }
+
+
 
     public void muerto()
     {
