@@ -10,7 +10,7 @@ using TMPro;
 public class main : MonoBehaviour {
 	public personaje player;
 	//public Object[] heroes= FindObjectsOfType(Type hero);
-	public npc dps; public npc tank; public npc healer;
+	public arqueroBase dps; public tankBase tank; public healerBase healer;public espadachinBase espadachin;
 	public npc[] all;
 	public Button ataque;
 	public Button habilidad;
@@ -22,6 +22,7 @@ public class main : MonoBehaviour {
         PLAYER1C,
         PLAYER2C,
         PLAYER3C,
+        PLAYER4C,
         VICTORY
     }
 
@@ -43,38 +44,65 @@ public class main : MonoBehaviour {
 				break;
 
 			case (BattleStates.PLAYER1C):
-                if (!paused)
+                if (tank.getDead())
+                {
+                    currentState = BattleStates.PLAYER2C;
+                    paused = true;
+                }
+                else if (!paused)
                 {
                     StartCoroutine(waiter());
-                    tankBase tk = (tankBase)tank;
-                    tk.decision();
-                    tk.restaCooldowns();
-                    paused=true;
+                    tank.decision();
+                    tank.restaCooldowns();
+                    paused = true;
                 }
                 break;
 
             case (BattleStates.PLAYER2C):
-                if (paused)
+                if (dps.getDead())
                 {
-                    arqueroBase dp = (arqueroBase)dps;
-                    dp.decision();
-                    dp.restaCooldowns();
+                    currentState = BattleStates.PLAYER3C;
+                    paused=false;
+                }
+                else if (paused)
+                { 
+                    dps.decision();
+                    dps.restaCooldowns();
                     StartCoroutine(waiter());
                     paused = false;
                 }
 				break;
 
 			case (BattleStates.PLAYER3C):
-                if (!paused)
+                if (healer.getDead())
                 {
-                    healerBase h = (healerBase)healer;
-                    h.decision();
-                    h.restaCooldowns();
+                    currentState = BattleStates.PLAYER4C;
+                    paused = true;
+                }
+                else if (!paused)
+                {
+                    healer.decision();
+                    healer.restaCooldowns();
                     StartCoroutine(waiter());
                     paused = true;
                 }
 				break;
-		}
+            case (BattleStates.PLAYER4C):
+                if (espadachin.getDead())
+                {
+                    currentState = BattleStates.ENEMYC;
+                    paused = false;
+                }
+                else if (paused)
+                {
+                    espadachin.decision();
+                    espadachin.restaCooldowns();
+                    //StartCoroutine(waiter());
+                    
+                    paused = false;
+                }
+                break;
+        }
 		//ataque.onClick.AddListener(ataqueClick);
 	}
 	void ataqueClick(){
@@ -121,6 +149,10 @@ public class main : MonoBehaviour {
             currentState = BattleStates.PLAYER3C;
         }
         else if (currentState == BattleStates.PLAYER3C)
+        {
+            currentState = BattleStates.PLAYER4C;
+        }
+        else if (currentState == BattleStates.PLAYER4C)
         {
             currentState = BattleStates.ENEMYC;
         }

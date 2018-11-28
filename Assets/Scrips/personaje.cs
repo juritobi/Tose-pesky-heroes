@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using Random = UnityEngine.Random;
-
 public class personaje : MonoBehaviour {
     public GameObject damageText;
 	public Slider barH;
@@ -16,6 +15,7 @@ public class personaje : MonoBehaviour {
 	public int ap;
     public int def;
     public int mr;
+    public bool dead;
     protected List<string> estados;
     protected List<int> cooldowns;
 
@@ -61,7 +61,7 @@ public class personaje : MonoBehaviour {
             animacionDaño();
         }
 
-        if (hp < 0)
+        if (hp <= 0)
         {
             muerto();
         }
@@ -87,10 +87,8 @@ public class personaje : MonoBehaviour {
             i = -i;
         }
         go.GetComponent<TextMesh>().text = i.ToString();
-        
-        
-
     }
+
     public void recibeEstado(string e,int turnos)
     {
         switch (e)
@@ -100,6 +98,9 @@ public class personaje : MonoBehaviour {
                 break;
             case "defensa2":
                 cambiaDefensa((int)Math.Round(def * 0.5, 0));
+                break;
+            case "ataque1":
+                cambiaDefensa((int)Math.Round(ad * 0.2, 0));
                 break;
             default:break;
         }
@@ -134,6 +135,9 @@ public class personaje : MonoBehaviour {
                 break;
             case "defensa2": cambiaDefensa((int)Math.Round(-(def * 0.5), 0));
                 break;
+            case "ataque1":
+                cambiaDefensa((int)Math.Round(-(ad * 0.2), 0));
+                break;
             default: break;
         }
         estados.Remove(e);
@@ -143,8 +147,9 @@ public class personaje : MonoBehaviour {
 
     public void muerto()
     {
-        DestroyImmediate(barH.gameObject);
-        DestroyImmediate(this.gameObject);
+        barH.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
+        dead = true;
     }
 
     public int getHp()
@@ -157,9 +162,12 @@ public class personaje : MonoBehaviour {
     }
     public int getMhp()
     {
-        return hp;
+        return mhp;
     }
-
+    public bool getDead()
+    {
+        return dead;
+    }
     public void cambiaDefensa(int c)
 	{
 			def = def + c;
