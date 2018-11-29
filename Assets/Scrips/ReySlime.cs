@@ -6,8 +6,14 @@ public class ReySlime : personaje {
 
 	// Use this for initialization
 	protected override void Start () {
-		
-	}
+        mhp = 1500;
+        ad = 90;
+        ap = 0;
+        def = 200;
+        mr = 50;
+        base.Start();
+
+    }
 	
 	// Update is called once per frame
 	
