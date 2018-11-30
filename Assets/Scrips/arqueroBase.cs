@@ -11,10 +11,10 @@ public class arqueroBase : npc
     {
 
         mhp = 200;
-        ad = 80;
-        ap = 0;
-        def = 75;
-        mr = 45;
+        iad = 80;
+        iap = 0;
+        idef = 75;
+        imr = 45;
         base.Start();
     }
     public void decision()
@@ -25,10 +25,10 @@ public class arqueroBase : npc
 
         if (value < 10)
         {
-            objetivo.cambiaHp((int)Math.Round(ad * 1.1, 0),'f');
-            value = rnd.Next(0, 1);
-            if (value == 1)
-            {
+            System.Random rand = new System.Random();
+            int valor = rand.Next(1, 100);
+            if (valor < 50) { 
+
                 objetivo.recibeEstado("ceguera",1);
             }
             Debug.Log("ceguera");
@@ -36,8 +36,9 @@ public class arqueroBase : npc
         else if (value < 20)
         {
             objetivo.cambiaHp((int)Math.Round(ad * 1.1, 0),'f');
-            value = rnd.Next(0, 1);
-            if (value == 1)
+            System.Random rand = new System.Random();
+            int valor = rand.Next(1, 100);
+            if (valor <50)
             {
                 objetivo.recibeEstado("veneno", 5);
             }

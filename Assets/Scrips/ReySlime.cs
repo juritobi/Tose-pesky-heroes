@@ -7,15 +7,13 @@ public class ReySlime : personaje {
 	// Use this for initialization
 	protected override void Start () {
         mhp = 1500;
-        ad = 90;
-        ap = 0;
-        def = 200;
-        mr = 50;
+        iad = 90;
+        iap = 0;
+        idef = 200;
+        imr = 50;
         base.Start();
 
     }
-	
-	// Update is called once per frame
 	
     public void pasiva(npc n1,npc n2,npc n3,npc n4, npc n5)
     {

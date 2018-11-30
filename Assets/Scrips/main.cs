@@ -52,8 +52,8 @@ public class main : MonoBehaviour {
                 else if (!paused)
                 {
                     StartCoroutine(waiter());
-                    tank.decision();
                     tank.restaCooldowns();
+                    tank.decision();
                     paused = true;
                 }
                 break;
@@ -65,9 +65,9 @@ public class main : MonoBehaviour {
                     paused=false;
                 }
                 else if (paused)
-                { 
-                    dps.decision();
+                {
                     dps.restaCooldowns();
+                    dps.decision();
                     StartCoroutine(waiter());
                     paused = false;
                 }
@@ -81,8 +81,8 @@ public class main : MonoBehaviour {
                 }
                 else if (!paused)
                 {
-                    healer.decision();
                     healer.restaCooldowns();
+                    healer.decision();
                     StartCoroutine(waiter());
                     paused = true;
                 }
@@ -95,9 +95,9 @@ public class main : MonoBehaviour {
                 }
                 else if (paused)
                 {
-                    espadachin.decision();
                     espadachin.restaCooldowns();
-                    //StartCoroutine(waiter());
+                    espadachin.decision();
+                    StartCoroutine(waiter());
                     
                     paused = false;
                 }
@@ -158,4 +158,25 @@ public class main : MonoBehaviour {
         }
         
     }
+    /*public void bucle()
+{
+    personaje[] personajes = FindObjectsOfType<personaje>();
+    int i = 0;
+    bool flag = false;
+    while (true)
+    {
+        if (i == 0)
+        {
+            StartCoroutine(playerTurn());
+            while (flag){}
+        }
+        else
+        {
+            npc actual=(npc)personajes[i];
+            actual.GetType().InvokeMember("decision",System.Reflection.BindingFlags.InvokeMethod, null, actual, null);
+
+        }
+        i++;
+    }
+}*/
 }
