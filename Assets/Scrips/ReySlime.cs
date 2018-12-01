@@ -6,56 +6,35 @@ public class ReySlime : personaje {
 
 	// Use this for initialization
 	protected override void Start () {
-        mhp = 1500;
+        mhp = 2000;
         ad = 90;
-        ap = 0;
+        ap = 135;
         def = 200;
-        mr = 50;
+        mr = 75;
         base.Start();
 
     }
 	
 	// Update is called once per frame
 	
-    public void pasiva(npc n1,npc n2,npc n3,npc n4, npc n5)
+    public void salpicar(npc n1,npc n2,npc n3,npc n4,int dan)
     {
-        int dan = (int)(0.1*ad);
+        int dandiv = (int)(0.1*dan);
 
-        List<int> respuesta = new List<int>();
 
-        if (n1.getDead() == false)
-            respuesta.Add(1);
+
+
+        if ( n1.getDead()==false)
+            n1.cambiaHp(ad, 't');
+
         if (n2.getDead() == false)
-            respuesta.Add(2);
+            n2.cambiaHp(dandiv, 't');
         if (n3.getDead() == false)
-            respuesta.Add(3);
+            n3.cambiaHp(dandiv, 't');
         if (n4.getDead() == false)
-            respuesta.Add(4);
-        if (n5.getDead() == false)
-            respuesta.Add(5);
-
-        int eleccion = UnityEngine.Random.RandomRange(0, respuesta.Count);
-
-        if (respuesta[eleccion]==1)
-        {
-            n1.cambiaHp(dan, 'f');
-        }
-       else if (respuesta[eleccion] == 2)
-        {
-            n2.cambiaHp(dan, 'f');
-        }
-       else if (respuesta[eleccion] == 3)
-        {
-            n3.cambiaHp(dan, 'f');
-        }
-       else if (respuesta[eleccion] == 4)
-        {
-            n4.cambiaHp(dan, 'f');
-        }
-       else if (respuesta[eleccion] == 5)
-        {
-            n5.cambiaHp(dan, 'f');
-        }
+            n4.cambiaHp(dandiv, 't');
+        
+        
 
 
     }
@@ -68,13 +47,14 @@ public class ReySlime : personaje {
     {
         int disminuye = (int)(0.03 * hp);
         cambiaHp(disminuye, 't');
-        n1.cambiaHp(ad, 'f');
+        n1.cambiaHp(ap, 'm');
         n1.recibeEstado("congelado", 1);
     }
     public void lluviaAcida(npc n1,npc n2,npc n3,npc n4,npc n5)
     {
         int disminuye = (int)(0.07 * hp);
         cambiaHp(disminuye, 't');
+        recibeEstado("hablluvia", 2);
         n1.recibeEstado("congelado", 1);
         n1.recibeEstado("quemado", 1);
         n2.recibeEstado("congelado", 1);
@@ -91,7 +71,7 @@ public class ReySlime : personaje {
     {
         int disminuye = (int)(0.02 * hp);
         cambiaHp(disminuye, 't');
-        recibeEstado("regenera", 3);
+        recibeEstado("habregeneracion", 4);
         eliminaEstado("quemado");
         eliminaEstado("envenenado");
         eliminaEstado("congelado");
@@ -104,28 +84,15 @@ public class ReySlime : personaje {
         eliminaEstado("enamorado");
         eliminaEstado("herido");
     }
-    public void aCenar(npc n1,npc n2,npc n3,npc n4,npc n5)
+    public void aCenar(npc n1)
     {
-        int aumenta = (int)(hp * 0.3);
+        int aumenta = (int)(hp * 0.2);
+        recibeEstado("habcenar", 3);
         if (n1.getHper() <= 30)
         {
             cambiaHp(aumenta, 'c');
-        }
-        else if (n2.getHper() <= 30)
-        {
-            cambiaHp(aumenta, 'c');
-        }
-       else if (n3.getHper() <= 30)
-        {
-            cambiaHp(aumenta, 'c');
-        }
-       else if (n4.getHper() <= 30)
-        {
-            cambiaHp(aumenta, 'c');
-        }
-       else if (n5.getHper() <= 30)
-        {
-            cambiaHp(aumenta, 'c');
+            devorar();
+            n1.cambiaHp(n1.getHp(), 't');
         }
     }
 
@@ -133,7 +100,8 @@ public class ReySlime : personaje {
     {
         int disminuye = (int)(0.4 * hp);
         cambiaHp(disminuye, 't');
-        int dano = (int)(6 * ad);
+        recibeEstado("habtemblor", 3);
+        int dano = (int)(5 * ad);
         float posibilidades = UnityEngine.Random.RandomRange(0.0f, 2.0f);
         if (posibilidades >= 0.75f)
         {
@@ -169,57 +137,31 @@ public class ReySlime : personaje {
     {
         int dan = (int)(0.4 * ad);
         int i;
-        List<int> respuesta = new List<int>();
+        recibeEstado("habmetralleta", 5);
+       
         int disminuye = (int)(0.1 * hp);
         cambiaHp(disminuye, 't');
-        if (n1.getDead() == false)
-            respuesta.Add(1);
-        if (n2.getDead() == false)
-            respuesta.Add(2);
-        if (n3.getDead() == false)
-            respuesta.Add(3);
-        if (n4.getDead() == false)
-            respuesta.Add(4);
-        if (n5.getDead() == false)
-            respuesta.Add(5);
-
-        int eleccion = UnityEngine.Random.RandomRange(0, 2);
-
-        if (respuesta[eleccion] == 1)
+       
+        for (i = 0; i < 10; i++)
         {
-            for (i = 0; i < 10; i++)
-            {
+            int eleccion = UnityEngine.Random.RandomRange(1, 5);
+            if (eleccion == 1 && n1.getDead() == false)
                 n1.cambiaHp(dan, 't');
-            }
-        }
-        else if (respuesta[eleccion] == 2)
-        {
-            for (i = 0; i < 10; i++)
-            {
+            if (eleccion==2 && n2.getDead() == false)
                 n2.cambiaHp(dan, 't');
-            }
-        }
-        else if (respuesta[eleccion] == 3)
-        {
-            for (i = 0; i < 10; i++)
-            {
+            if (eleccion==3 && n3.getDead() == false)
                 n3.cambiaHp(dan, 't');
-            }
+            if (eleccion==4 && n4.getDead() == false)
+                n4.cambiaHp(dan, 't');
+            if (eleccion==5 && n5.getDead() == false)
+                n5.cambiaHp(dan, 't');
+
+
+
         }
-        else if (respuesta[eleccion] == 4)
-        {
-            for (i = 0; i < 10; i++)
-            {
-                n4.cambiaHp(dan, 'f');
-            }
-        }
-        else if (respuesta[eleccion] == 5)
-        {
-            for (i = 0; i < 10; i++)
-            {
-                n5.cambiaHp(dan, 'f');
-            }
-        }
+        
+
+       
 
 
     }
