@@ -10,10 +10,10 @@ public class healerBase : npc
     protected override void Start()
     {
         mhp = 180;
-        ad = 0;
-        ap = 50;
-        def = 55;
-        mr = 95;
+        iad = 0;
+        iap = 50;
+        idef = 55;
+        imr = 95;
         base.Start();
     }
     public void decision()

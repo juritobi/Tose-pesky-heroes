@@ -2037,6 +2037,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1147723582}
   m_CullTransparentMesh: 0
+--- !u!1001 &1157829470
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4823756759058486, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823756759058486, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823756759058486, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823756759058486, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823756759058486, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823756759058486, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823756759058486, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823756759058486, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1165523002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,6 +2487,48 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1314109804}
   m_CullTransparentMesh: 0
+--- !u!1001 &1435319556
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4759469764128578, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759469764128578, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759469764128578, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759469764128578, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759469764128578, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759469764128578, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759469764128578, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759469764128578, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1439137646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,13 +2572,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+  textestado: {fileID: 1478855149143758, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+  textestadoobj: []
   barH: {fileID: 1714218649}
   imagen: {fileID: 875498309}
   mhp: 0
   hp: 0
+  iad: 0
   ad: 0
+  iap: 0
   ap: 0
+  idef: 0
   def: 0
+  imr: 0
   mr: 0
   dead: 0
   clicked: 0
@@ -2734,13 +2824,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+  textestado: {fileID: 1478855149143758, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+  textestadoobj: []
   barH: {fileID: 1035087933}
   imagen: {fileID: 716794206}
   mhp: 0
   hp: 0
+  iad: 0
   ad: 0
+  iap: 0
   ap: 0
+  idef: 0
   def: 0
+  imr: 0
   mr: 0
   dead: 0
   clicked: 0
@@ -3218,13 +3314,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+  textestado: {fileID: 1478855149143758, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+  textestadoobj: []
   barH: {fileID: 123407339}
   imagen: {fileID: 1246838216}
   mhp: 0
   hp: 0
+  iad: 0
   ad: 0
+  iap: 0
   ap: 0
+  idef: 0
   def: 0
+  imr: 0
   mr: 0
   dead: 0
   clicked: 0
@@ -3400,13 +3502,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+  textestado: {fileID: 1478855149143758, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+  textestadoobj: []
   barH: {fileID: 449896746}
   imagen: {fileID: 38187340}
   mhp: 0
   hp: 0
+  iad: 0
   ad: 0
+  iap: 0
   ap: 0
+  idef: 0
   def: 0
+  imr: 0
   mr: 0
   dead: 0
 --- !u!1 &1734557928
@@ -3452,13 +3560,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
+  textestado: {fileID: 1478855149143758, guid: 1b81016fdffcd2040acc9da0a32e4fae, type: 2}
+  textestadoobj: []
   barH: {fileID: 813684698}
   imagen: {fileID: 577924456}
   mhp: 0
   hp: 0
+  iad: 0
   ad: 0
+  iap: 0
   ap: 0
+  idef: 0
   def: 0
+  imr: 0
   mr: 0
   dead: 0
   clicked: 0

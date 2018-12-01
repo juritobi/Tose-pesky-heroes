@@ -6,18 +6,25 @@ public class ReySlime : personaje {
 
 	// Use this for initialization
 	protected override void Start () {
+
         mhp = 2000;
         ad = 90;
         ap = 135;
         def = 200;
         mr = 75;
+
+        
         base.Start();
 
     }
 	
+
 	// Update is called once per frame
 	
-    public void salpicar(npc n1,npc n2,npc n3,npc n4,int dan)
+   
+
+    public void salpicar(npc n1,npc n2,npc n3,npc n4, npc n5,int dan)
+
     {
         int dandiv = (int)(0.1*dan);
 
@@ -25,7 +32,7 @@ public class ReySlime : personaje {
 
 
         if ( n1.getDead()==false)
-            n1.cambiaHp(ad, 't');
+            n1.cambiaHp(dandiv, 't');
 
         if (n2.getDead() == false)
             n2.cambiaHp(dandiv, 't');

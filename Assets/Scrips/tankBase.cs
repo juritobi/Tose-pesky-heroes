@@ -10,16 +10,16 @@ public class tankBase : npc
     {
 
         mhp = 300;
-        ad = 50;
-        ap = 0;
-        def = 100;
-        mr = 50;
+        iad = 50;
+        iap = 0;
+        idef = 100;
+        imr = 50;
         base.Start();
     }
     public void decision()
     {
          
-        if (estados.Contains("ceguera") && Random.Range(0,1)==1){
+        if (estados.Contains("ceguera") && Random.Range(1,100)<50){
 
         }
         else
