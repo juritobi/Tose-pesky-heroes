@@ -28,9 +28,6 @@ public class ReySlime : personaje {
     {
         int dandiv = (int)(0.1*dan);
 
-
-
-
         if ( n1.getDead()==false)
             n1.cambiaHp(dandiv, 't');
 
@@ -162,13 +159,8 @@ public class ReySlime : personaje {
                 n4.cambiaHp(dan, 't');
             if (eleccion==5 && n5.getDead() == false)
                 n5.cambiaHp(dan, 't');
-
-
-
         }
-        
-
-       
+              
 
 
     }
