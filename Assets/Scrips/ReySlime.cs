@@ -23,20 +23,17 @@ public class ReySlime : personaje {
 	
    
 
-    public void salpicar(npc n1,npc n2,npc n3,npc n4, npc n5,int dan)
+    public void salpicar(npc[] en,int dan)
 
     {
         int dandiv = (int)(0.1*dan);
+        int i;
+        for(i=0;i<en.Length;i++){
+            if(en[i].gameObject.activeSelf)
+              en[i].cambiaHp(dandiv,'t');
+        }
 
-        if ( n1.getDead()==false)
-            n1.cambiaHp(dandiv, 't');
-
-        if (n2.getDead() == false)
-            n2.cambiaHp(dandiv, 't');
-        if (n3.getDead() == false)
-            n3.cambiaHp(dandiv, 't');
-        if (n4.getDead() == false)
-            n4.cambiaHp(dandiv, 't');
+       
         
         
 
@@ -54,21 +51,19 @@ public class ReySlime : personaje {
         n1.cambiaHp(ap, 'm');
         n1.recibeEstado("congelado", 1);
     }
-    public void lluviaAcida(npc n1,npc n2,npc n3,npc n4,npc n5)
+    public void lluviaAcida(npc[] en)
     {
         int disminuye = (int)(0.07 * hp);
         cambiaHp(disminuye, 't');
         recibeEstado("hablluvia", 2);
-        n1.recibeEstado("congelado", 1);
-        n1.recibeEstado("quemado", 1);
-        n2.recibeEstado("congelado", 1);
-        n2.recibeEstado("quemado", 1);
-        n3.recibeEstado("congelado", 1);
-        n3.recibeEstado("quemado", 1);
-        n4.recibeEstado("congelado", 1);
-        n4.recibeEstado("quemado", 1);
-        n5.recibeEstado("congelado", 1);
-        n5.recibeEstado("quemado", 1);
+        int i;
+        for(i=0;i<en.Length;i++){
+            if(en[i].gameObject.activeSelf){
+                en[i].recibeEstado("congelado",1);
+                en[i].recibeEstado("quemado",1);
+            }
+        }
+        
 
     }
     public void regeneracion()
@@ -100,47 +95,27 @@ public class ReySlime : personaje {
         }
     }
 
-    public void golpeTemblor(npc n1,npc n2,npc n3,npc n4,npc n5)
+    public void golpeTemblor(npc[] en)
     {
         int disminuye = (int)(0.4 * hp);
         cambiaHp(disminuye, 't');
         recibeEstado("habtemblor", 3);
         int dano = (int)(5 * ad);
-        float posibilidades = UnityEngine.Random.RandomRange(0.0f, 2.0f);
-        if (posibilidades >= 0.75f)
-        {
-            n1.cambiaHp(dano, 'f');
+        int i;
+        
+        for(i=0;i<en.Length;i++){
+            float posibilidades = UnityEngine.Random.RandomRange(0.0f, 1.0f);
+            if(en[i].gameObject.activeSelf&& posibilidades>=0.75f)
+                en[i].cambiaHp(dano,'f');
         }
-
-        posibilidades = UnityEngine.Random.RandomRange(0.0f, 2.0f);
-        if (posibilidades >= 0.75f)
-        {
-            n2.cambiaHp(dano, 'f');
-        }
-
-        posibilidades = UnityEngine.Random.RandomRange(0.0f, 2.0f);
-        if (posibilidades >= 0.75f)
-        {
-            n3.cambiaHp(dano, 'f');
-        }
-
-        posibilidades = UnityEngine.Random.RandomRange(0.0f, 2.0f);
-        if (posibilidades >= 0.75f)
-        {
-            n4.cambiaHp(dano, 'f');
-        }
-
-        posibilidades = UnityEngine.Random.RandomRange(0.0f, 2.0f); ;
-        if (posibilidades >= 0.75f)
-        {
-            n5.cambiaHp(dano, 'f');
-        }
+        
     }
 
-    public void mocotralleta(npc n1,npc n2,npc n3,npc n4,npc n5)
+    public void mocotralleta(npc[] en)
     {
         int dan = (int)(0.4 * ad);
         int i;
+        int j;
         recibeEstado("habmetralleta", 5);
        
         int disminuye = (int)(0.1 * hp);
@@ -148,17 +123,12 @@ public class ReySlime : personaje {
        
         for (i = 0; i < 10; i++)
         {
-            int eleccion = UnityEngine.Random.RandomRange(1, 5);
-            if (eleccion == 1 && n1.getDead() == false)
-                n1.cambiaHp(dan, 't');
-            if (eleccion==2 && n2.getDead() == false)
-                n2.cambiaHp(dan, 't');
-            if (eleccion==3 && n3.getDead() == false)
-                n3.cambiaHp(dan, 't');
-            if (eleccion==4 && n4.getDead() == false)
-                n4.cambiaHp(dan, 't');
-            if (eleccion==5 && n5.getDead() == false)
-                n5.cambiaHp(dan, 't');
+            int eleccion = UnityEngine.Random.RandomRange(0, 4);
+            for(j=0;j<en.Length;j++){
+                if(en[i].gameObject.activeSelf&&eleccion==j)
+                    en[i].cambiaHp(dan,'t');
+            }
+            
         }
               
 
