@@ -10,7 +10,7 @@ public class personaje : MonoBehaviour {
     public GameObject textestado;
     public List<GameObject> textestadoobj;
 	public Slider barH;
-    public GameObject imagen;
+    public GameObject animator;
 	public int mhp;
 	public int hp;
     public int iad;
@@ -84,7 +84,7 @@ public class personaje : MonoBehaviour {
 
     public void animacionDaño()
     {
-        imagen.GetComponent<Animator>().Play("recibeDaño",-1,0);
+        animator.GetComponent<Animator>().Play("recibeDaño",-1,0);
     }
 
     public void muestraDaño(int i)

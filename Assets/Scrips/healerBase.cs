@@ -70,7 +70,7 @@ public class healerBase : npc
             objetivo.cambiaHp(ap, 'm');
             Debug.Log("healer basico");
         }
-        imagen.GetComponent<Animator>().Play("hacerDaño", -1, 0);
+        animator.GetComponent<Animator>().Play("hacerDaño", -1, 0);
     }
 
 
