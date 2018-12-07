@@ -1177,8 +1177,12 @@ MonoBehaviour:
   healer: {fileID: 1439137649}
   espadachin: {fileID: 1547494710}
   all: []
-  ataque: {fileID: 1147723584}
-  habilidad: {fileID: 358577790}
+  Accion1: {fileID: 1147723584}
+  Accion2: {fileID: 358577790}
+  Accion3: {fileID: 0}
+  Accion4: {fileID: 0}
+  Accion5: {fileID: 0}
+  Accion6: {fileID: 0}
   paused: 0
 --- !u!1 &564252937
 GameObject:
