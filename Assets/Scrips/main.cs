@@ -17,15 +17,24 @@ public class main : MonoBehaviour
     public tankBase tank;
     public healerBase healer;
     public espadachinBase espadachin;
+    public npc mago;
 
     public npc[] all;
 
-    public Button Accion1;
+   // public Button Accion1;
     public Button Accion2;
     public Button Accion3;
     public Button Accion4;
     public Button Accion5;
     public Button Accion6;
+
+
+    public GameObject DefeatScreen;
+    public GameObject Interface;
+
+    
+
+   
 
     public bool paused = false;
 
@@ -39,6 +48,7 @@ public class main : MonoBehaviour
         PLAYER2C,
         PLAYER3C,
         PLAYER4C,
+        PLAYER5C,
         DEFEAT,
         VICTORY
     }
@@ -48,11 +58,12 @@ public class main : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         all = FindObjectsOfType<npc>();
 
         currentState = BattleStates.ENEMYC;
 
-        Accion1.onClick.AddListener(AccionA);
+      //  Accion1.onClick.AddListener(AccionA);
         Accion2.onClick.AddListener(AccionB);
         Accion3.onClick.AddListener(AccionC);
         Accion4.onClick.AddListener(AccionD);
@@ -65,6 +76,8 @@ public class main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
 
         switch (currentState)
         {
@@ -134,13 +147,28 @@ public class main : MonoBehaviour
             case (BattleStates.PLAYER4C):
                 if (espadachin.getDead())
                 {
-                    currentState = BattleStates.ENEMYC;
+                    currentState = BattleStates.PLAYER5C;
                     paused = false;
                 }
                 else if (paused)
                 {
                     espadachin.restaCooldowns();
                     espadachin.decision();
+                    StartCoroutine(waiter());
+
+                    paused = false;
+                }
+                break;
+            case (BattleStates.PLAYER5C):
+                if (mago.getDead())
+                {
+                    currentState = BattleStates.ENEMYC;
+                    paused = false;
+                }
+                else if (paused)
+                {
+                    mago.restaCooldowns();
+                    //mago.decision();
                     StartCoroutine(waiter());
 
                     paused = false;
@@ -157,6 +185,9 @@ public class main : MonoBehaviour
 
             case (BattleStates.DEFEAT):     //  implementar plss
 
+
+                DefeatScreen.SetActive(true);
+                Interface.SetActive(false);
                 //  Mostrar pantalla derrota
                 //  Ir al menu principal
 
@@ -167,8 +198,9 @@ public class main : MonoBehaviour
         //ataque.onClick.AddListener(ataqueClick);
     }
     //  clicked seleccionado
-    void AccionA()
+   public void AccionA()
     {
+        Debug.Log("YEET");
 
         if (currentState == BattleStates.ENEMYC)
         {
@@ -333,7 +365,7 @@ public class main : MonoBehaviour
 
                     }
 
-                    //  all[Target].cambiaHp(10000, 'f');                  
+                    //all[Target].cambiaHp(10000, 'f');                  
 
                 }
                 else
@@ -371,7 +403,7 @@ public class main : MonoBehaviour
             if (player is ReySlime)
             {
                 ReySlime moco = (ReySlime)player;
-                //moco.golpeTemblor(all[]);
+                moco.golpeTemblor(all);
 
             }
             player.restaCooldowns();
@@ -393,7 +425,7 @@ public class main : MonoBehaviour
             if (player is ReySlime)
             {
                 ReySlime moco = (ReySlime)player;
-                //moco.mocotralleta(all[]);
+                moco.mocotralleta(all);
 
             }
             player.restaCooldowns();
@@ -419,6 +451,10 @@ public class main : MonoBehaviour
         }
     }
 
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("_MainMenu");
+    }
 
 
 
@@ -445,9 +481,7 @@ public class main : MonoBehaviour
 
 
 
-
-
- 
+    /* 
 	void ataqueClick(){
 		if(currentState==BattleStates.ENEMYC){
 			foreach (npc h in all) {
@@ -477,6 +511,8 @@ public class main : MonoBehaviour
 			}
 		}
 	}
+    */
+
 	IEnumerator waiter(){
 
         yield return new WaitForSeconds(1);
@@ -497,6 +533,10 @@ public class main : MonoBehaviour
             currentState = BattleStates.PLAYER4C;
         }
         else if (currentState == BattleStates.PLAYER4C)
+        {
+            currentState = BattleStates.PLAYER5C;
+        }
+        else if (currentState == BattleStates.PLAYER5C)
         {
             currentState = BattleStates.ENEMYC;
         }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CheckClicked : MonoBehaviour {
 
-    public arqueroBase dps; public tankBase tank; public healerBase healer; public espadachinBase espadachin;
-    public bool D, T, H, E;
+    public arqueroBase dps; public tankBase tank; public healerBase healer; public espadachinBase espadachin; public npc mago;
+    public bool D, T, H, E, M;
 
     // Use this for initialization
     void Start () {
@@ -19,6 +19,7 @@ public class CheckClicked : MonoBehaviour {
         T = tank.clicked;
         H = healer.clicked;
         E = espadachin.clicked;
+        M = mago.clicked;
 
     }
     public void Check(npc click)
@@ -28,6 +29,7 @@ public class CheckClicked : MonoBehaviour {
             tank.clicked = false;
             healer.clicked = false;
             espadachin.clicked = false;
+            mago.clicked = false;
 
         }
         if (click is tankBase)
@@ -35,18 +37,28 @@ public class CheckClicked : MonoBehaviour {
             dps.clicked = false;
             healer.clicked = false;
             espadachin.clicked = false;
+            mago.clicked = false;
         }
         if (click is healerBase)
         {
             dps.clicked = false;
             tank.clicked = false;
             espadachin.clicked = false;
+            mago.clicked = false;
         }
         if (click is espadachinBase)
         {
             dps.clicked = false;
             tank.clicked = false;
             healer.clicked = false;
+            mago.clicked = false;
         }
+      /*  if (click is npc)
+        {
+            dps.clicked = false;
+            tank.clicked = false;
+            healer.clicked = false;
+            espadachin.clicked = false;
+        }*/
     }
 }
