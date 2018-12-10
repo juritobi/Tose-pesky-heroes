@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject button;
     public GameObject screen;
+    public GameObject Overlay;
     private bool isOpen;
 	// Use this for initialization
 	void Start () {
@@ -23,6 +24,7 @@ public class PauseMenu : MonoBehaviour {
             // Debug.Log("activo");
             screen.SetActive(true);
             button.SetActive(true);
+            Overlay.SetActive(false);
             isOpen = true;
         }
         else if (Input.GetKeyDown("escape") && isOpen)
@@ -30,6 +32,7 @@ public class PauseMenu : MonoBehaviour {
             // Debug.Log("inactivo");
             screen.SetActive(false);
             button.SetActive(false);
+            Overlay.SetActive(true);
             isOpen = false;
         }
     }
