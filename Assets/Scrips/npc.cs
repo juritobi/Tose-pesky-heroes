@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class npc : personaje {
 
 	public bool clicked;
+    public CheckClicked MeAndJustMe;
 	// Use this for initialization
 	protected override void Start () {
         base.Start();
@@ -22,5 +23,6 @@ public class npc : personaje {
 
 	void OnMouseDown(){
 		clicked = true;
+        MeAndJustMe.Check(this);
 	}
 }

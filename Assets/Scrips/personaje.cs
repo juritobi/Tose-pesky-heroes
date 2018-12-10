@@ -43,6 +43,7 @@ public class personaje : MonoBehaviour {
     protected virtual void Update()
     {
 		barH.value=hp;
+
     }
 
     public void cambiaHp(int c, char tipo){//tipos: m daño magico, f daño fisico, c curacion, t daño verdadero(ignora defensas)
