@@ -54,7 +54,8 @@ public class magoBase : npc
             objetivo.cambiaHp(ap,'m');
             Debug.Log("mago basico");
         }
+        animator.transform.GetChild(0).GetComponent<Animator>().Play("mago", -1, 0);
     }
 
-
+    
 }

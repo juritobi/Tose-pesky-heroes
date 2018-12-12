@@ -50,6 +50,7 @@ public class espadachinBase : npc
             objetivo.cambiaHp(ad, 'f');
             Debug.Log("espadachin basico");
         }
+        animator.transform.GetChild(0).GetComponent<Animator>().Play("espadachin", -1, 0);
     }
 
 

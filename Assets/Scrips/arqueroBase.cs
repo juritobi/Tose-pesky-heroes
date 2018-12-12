@@ -54,6 +54,7 @@ public class arqueroBase : npc
             objetivo.cambiaHp(ad,'f');
             Debug.Log("arquero basico");
         }
+        animator.transform.GetChild(0).GetComponent<Animator>().Play("arquero", -1, 0);
     }
 
 

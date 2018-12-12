@@ -31,9 +31,6 @@ public class ReySlime : personaje {
         }
 
         Debug.Log("salpicar");
-        
-        
-
 
     }
     public void devorar()

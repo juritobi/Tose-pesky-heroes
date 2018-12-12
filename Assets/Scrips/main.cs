@@ -58,7 +58,6 @@ public class main : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
         all = FindObjectsOfType<npc>();
 
         currentState = BattleStates.ENEMYC;

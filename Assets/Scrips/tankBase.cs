@@ -18,42 +18,37 @@ public class tankBase : npc
     }
     public void decision()
     {
-         
-        if (estados.Contains("ceguera") && Random.Range(1,100)<50){
 
+        personaje objetivo = FindObjectOfType<ReySlime>();
+        System.Random rnd = new System.Random();
+        int value = rnd.Next(1, 100);
+
+        if (value < 10)
+        {
+            Debug.Log("detras de mi");
+            npc[] aux = FindObjectsOfType<npc>();
+            do
+            {
+                objetivo = aux[Random.Range(0, aux.Length)];
+            } while (objetivo == this);
+            objetivo.recibeEstado("defensa2", 3);
+        }
+        else if (value < 30)
+        {
+            Debug.Log("defender");
+            this.recibeEstado("defensa1", 2);
+        }
+        else if (value < 60)
+        {
+            Debug.Log("golpe de escudo");
+            objetivo.cambiaHp(def, 'f');
         }
         else
         {
-            personaje objetivo = FindObjectOfType<ReySlime>();
-            System.Random rnd = new System.Random();
-            int value = rnd.Next(1, 100);
-
-            if (value < 10)
-            {
-                Debug.Log("detras de mi");
-                npc[] aux = FindObjectsOfType<npc>();
-                do
-                {
-                    objetivo = aux[Random.Range(0, aux.Length)];
-                } while (objetivo == this);
-                objetivo.recibeEstado("defensa2", 3);
-            }
-            else if (value < 30)
-            {
-                Debug.Log("defender");
-                this.recibeEstado("defensa1", 2);
-            }
-            else if (value < 60)
-            {
-                Debug.Log("golpe de escudo");
-                objetivo.cambiaHp(def, 'f');
-            }
-            else
-            {
-                Debug.Log("tank basico");
-                objetivo.cambiaHp(ad, 'f');
-            }
+            Debug.Log("tank basico");
+            objetivo.cambiaHp(ad, 'f');
         }
+        animator.transform.GetChild(0).GetComponent<Animator>().Play("tank", -1, 0);
     }
     
 }
