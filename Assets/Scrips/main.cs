@@ -30,7 +30,9 @@ public class main : MonoBehaviour
 
 
     public GameObject DefeatScreen;
+    public GameObject VictoryScreen;
     public GameObject Interface;
+    public GameObject MenuPause;
 
     
 
@@ -58,6 +60,7 @@ public class main : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        MenuPause.SetActive(true);
         all = FindObjectsOfType<npc>();
 
         currentState = BattleStates.ENEMYC;
@@ -76,8 +79,14 @@ public class main : MonoBehaviour
     void Update()
     {
 
-
-
+        if (player.getDead())
+        {
+            currentState = BattleStates.DEFEAT;
+        }
+        if (AllTargetsDestroyed())
+        {
+            currentState = BattleStates.VICTORY;
+        }
         switch (currentState)
         {
 
@@ -179,6 +188,8 @@ public class main : MonoBehaviour
 
                 //  Mostrar pantalla de victoria
                 //  Recargar los npcs
+                VictoryScreen.SetActive(true);
+                Interface.SetActive(false);
 
 
                 break;
@@ -455,7 +466,30 @@ public class main : MonoBehaviour
         SceneManager.LoadScene("_MainMenu");
     }
 
+    public void OnVictoryChoose(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                //curarse
+                break;
+            case 1:
+                //cosechar almas
+                break;
+            case 2:
+                //buscar objeto
+                break;
+            default:
+                Debug.LogError("This shouldn't be happening, but here we are...");
+                break;
+        }
+        //   we should "respawn" enemies but we're "respawning" the scene but nobody knows heh heh heh.
+        currentState = BattleStates.ENEMYC;
+        Debug.Log(currentState);
+        SceneManager.LoadScene("prueba");
 
+
+    }
 
 
 

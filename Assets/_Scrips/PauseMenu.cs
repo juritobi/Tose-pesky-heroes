@@ -13,8 +13,10 @@ public class PauseMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         isOpen = false;
-        button.SetActive(false);
         screen.SetActive(false);
+        button.SetActive(false);
+        Overlay.SetActive(true);
+
     }
 	
 	// Update is called once per frame
@@ -36,6 +38,8 @@ public class PauseMenu : MonoBehaviour {
             isOpen = false;
         }
     }
+
+    
 
     public void LoadMenu()
     {
