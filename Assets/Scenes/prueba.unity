@@ -1608,11 +1608,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 564252937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a734042012a6804aa6ef6690048f57b, type: 3}
+  m_Script: {fileID: 11500000, guid: f5bb55678f566ee46a60dac3e31eb439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
-  textestado: {fileID: 1361264888}
+  textestado: {fileID: 1493155887350566, guid: c0e27551117bf6442852a99531585f5b, type: 2}
   textestadoobj: []
   barH: {fileID: 1625984540}
   animator: {fileID: 1210329034}
@@ -4127,22 +4127,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4325688239185676, guid: c0e27551117bf6442852a99531585f5b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4325688239185676, guid: c0e27551117bf6442852a99531585f5b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e27551117bf6442852a99531585f5b, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1361264888 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1493155887350566, guid: c0e27551117bf6442852a99531585f5b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1339992727}
 --- !u!1 &1439137646
 GameObject:
   m_ObjectHideFlags: 0
@@ -4186,7 +4173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
-  textestado: {fileID: 1361264888}
+  textestado: {fileID: 1493155887350566, guid: c0e27551117bf6442852a99531585f5b, type: 2}
   textestadoobj: []
   barH: {fileID: 1714218649}
   animator: {fileID: 1314338700}
@@ -4505,7 +4492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
-  textestado: {fileID: 1361264888}
+  textestado: {fileID: 1493155887350566, guid: c0e27551117bf6442852a99531585f5b, type: 2}
   textestadoobj: []
   barH: {fileID: 1035087933}
   animator: {fileID: 1828045264}
@@ -5321,7 +5308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
-  textestado: {fileID: 1361264888}
+  textestado: {fileID: 1493155887350566, guid: c0e27551117bf6442852a99531585f5b, type: 2}
   textestadoobj: []
   barH: {fileID: 123407339}
   animator: {fileID: 1678916858}
@@ -5510,7 +5497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
-  textestado: {fileID: 1361264888}
+  textestado: {fileID: 1493155887350566, guid: c0e27551117bf6442852a99531585f5b, type: 2}
   textestadoobj: []
   barH: {fileID: 449896746}
   animator: {fileID: 1006899412}
@@ -5568,7 +5555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageText: {fileID: 1967309284957216, guid: 9993d7f5272bd7046b65d5de15096246, type: 2}
-  textestado: {fileID: 1361264888}
+  textestado: {fileID: 1493155887350566, guid: c0e27551117bf6442852a99531585f5b, type: 2}
   textestadoobj: []
   barH: {fileID: 813684698}
   animator: {fileID: 1809527061}
