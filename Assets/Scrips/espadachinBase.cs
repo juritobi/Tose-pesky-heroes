@@ -23,7 +23,7 @@ public class espadachinBase : npc
         {
             recibeEstado("ataque1", 3);
         }
-        personaje objetivo = FindObjectOfType<jugador>();
+        personaje objetivo = FindObjectOfType<ReySlime>();
         System.Random rnd = new System.Random();
         int value = rnd.Next(1, 100);
 

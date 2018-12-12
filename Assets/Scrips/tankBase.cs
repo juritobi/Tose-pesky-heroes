@@ -24,7 +24,7 @@ public class tankBase : npc
         }
         else
         {
-            personaje objetivo = FindObjectOfType<jugador>();
+            personaje objetivo = FindObjectOfType<ReySlime>();
             System.Random rnd = new System.Random();
             int value = rnd.Next(1, 100);
 

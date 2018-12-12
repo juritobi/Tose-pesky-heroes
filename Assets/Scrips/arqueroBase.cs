@@ -19,7 +19,7 @@ public class arqueroBase : npc
     }
     public void decision()
     {
-        personaje objetivo = FindObjectOfType<jugador>();
+        personaje objetivo = FindObjectOfType<ReySlime>();
         System.Random rnd = new System.Random();
         int value = rnd.Next(1, 100);
 

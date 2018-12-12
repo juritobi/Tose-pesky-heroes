@@ -18,7 +18,7 @@ public class healerBase : npc
     }
     public void decision()
     {
-        personaje objetivo = FindObjectOfType<jugador>();
+        personaje objetivo = FindObjectOfType<ReySlime>();
         System.Random rnd = new System.Random();
         int value = rnd.Next(1, 100);
 
@@ -70,7 +70,7 @@ public class healerBase : npc
             objetivo.cambiaHp(ap, 'm');
             Debug.Log("healer basico");
         }
-        animator.GetComponent<Animator>().Play("hacerDaño", -1, 0);
+        //animator.GetComponent<Animator>().Play("hacerDaño", -1, 0);
     }
 
 

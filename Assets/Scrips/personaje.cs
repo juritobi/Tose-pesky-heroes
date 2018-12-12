@@ -140,7 +140,7 @@ public class personaje : MonoBehaviour {
     {
         if (action == 0)
         {
-            Vector3 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+            Vector3 pos = new Vector3(transform.position.x-100, transform.position.y+50, transform.position.z - 3);
             textestadoobj.Add(Instantiate(textestado, pos, Quaternion.identity, transform));
             textestadoobj[textestadoobj.Count-1].GetComponent<TextMesh>().text = e + " - " + turnos;
         }
