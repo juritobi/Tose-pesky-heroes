@@ -160,18 +160,19 @@ public class main : MonoBehaviour
                 }
                 break;
             case (BattleStates.PLAYER5C):
+                Debug.Log("hola");
                 if (mago.getDead())
                 {
                     currentState = BattleStates.ENEMYC;
-                    paused = false;
+                    paused = true;
                 }
-                else if (paused)
+                else if (!paused)
                 {
                     mago.restaCooldowns();
                     mago.decision();
                     StartCoroutine(waiter());
 
-                    paused = false;
+                    paused = true;
                 }
                 break;
 
@@ -200,7 +201,6 @@ public class main : MonoBehaviour
     //  clicked seleccionado
    public void AccionA()
     {
-        Debug.Log("YEET");
 
         if (currentState == BattleStates.ENEMYC)
         {
