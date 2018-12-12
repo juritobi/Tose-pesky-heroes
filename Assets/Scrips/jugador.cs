@@ -8,7 +8,6 @@ public class jugador : personaje
 {
     protected override void Start()
     {
-        mhp = 2000;
         base.Start();
     }
 

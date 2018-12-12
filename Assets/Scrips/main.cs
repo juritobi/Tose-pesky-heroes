@@ -17,7 +17,7 @@ public class main : MonoBehaviour
     public tankBase tank;
     public healerBase healer;
     public espadachinBase espadachin;
-    public npc mago;
+    public magoBase mago;
 
     public npc[] all;
 
@@ -168,7 +168,7 @@ public class main : MonoBehaviour
                 else if (paused)
                 {
                     mago.restaCooldowns();
-                    //mago.decision();
+                    mago.decision();
                     StartCoroutine(waiter());
 
                     paused = false;

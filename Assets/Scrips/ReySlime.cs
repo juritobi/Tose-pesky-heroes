@@ -8,18 +8,15 @@ public class ReySlime : personaje {
 	protected override void Start () {
 
         mhp = 2000;
-        ad = 90;
-        ap = 135;
-        def = 200;
-        mr = 75;
+        iad = 90;
+        iap = 135;
+        idef = 200;
+        imr = 75;
 
         
         base.Start();
 
     }
-	
-
-	// Update is called once per frame
 	
    
 
@@ -33,7 +30,7 @@ public class ReySlime : personaje {
               en[i].cambiaHp(dandiv,'t');
         }
 
-       
+        Debug.Log("salpicar");
         
         
 
@@ -43,6 +40,7 @@ public class ReySlime : personaje {
     {
         int aumenta = (int)(0.1 * hp);
         cambiaHp(aumenta, 'c');
+        Debug.Log("devorar");
     }
     public void disparoMoco(npc n1)
     {
@@ -50,6 +48,7 @@ public class ReySlime : personaje {
         cambiaHp(disminuye, 't');
         n1.cambiaHp(ap, 'm');
         n1.recibeEstado("congelado", 1);
+        Debug.Log("disparomoco");
     }
     public void lluviaAcida(npc[] en)
     {
@@ -63,7 +62,8 @@ public class ReySlime : personaje {
                 en[i].recibeEstado("quemado",1);
             }
         }
-        
+        Debug.Log("lluvia acida");
+
 
     }
     public void regeneracion()
@@ -82,6 +82,7 @@ public class ReySlime : personaje {
         eliminaEstado("cegado");
         eliminaEstado("enamorado");
         eliminaEstado("herido");
+        Debug.Log("regeneracion");
     }
     public void aCenar(npc n1)
     {
@@ -93,6 +94,7 @@ public class ReySlime : personaje {
             devorar();
             n1.cambiaHp(n1.getHp(), 't');
         }
+        Debug.Log("a cenar");
     }
 
     public void golpeTemblor(npc[] en)
@@ -108,7 +110,7 @@ public class ReySlime : personaje {
             if(en[i].gameObject.activeSelf&& posibilidades>=0.75f)
                 en[i].cambiaHp(dano,'f');
         }
-        
+        Debug.Log("golpe temblor");
     }
 
     public void mocotralleta(npc[] en)
@@ -130,8 +132,8 @@ public class ReySlime : personaje {
             }
             
         }
-              
 
+        Debug.Log("mocotralleta");
 
     }
 }  
