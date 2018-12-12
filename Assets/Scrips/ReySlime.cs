@@ -114,20 +114,15 @@ public class ReySlime : personaje {
     {
         int dan = (int)(0.4 * ad);
         int i;
-        int j;
         recibeEstado("habmetralleta", 5);
        
         int disminuye = (int)(0.1 * hp);
         cambiaHp(disminuye, 't');
-       
-        for (i = 0; i < 10; i++)
+        int eleccion = 0;
+        for (i = 0; i < 11; i++)
         {
-            int eleccion = UnityEngine.Random.RandomRange(0, 4);
-            for(j=0;j<en.Length;j++){
-                if(en[i].gameObject.activeSelf&&eleccion==j)
-                    en[i].cambiaHp(dan,'t');
-            }
-            
+            eleccion = UnityEngine.Random.RandomRange(0, 5);
+             en[eleccion].cambiaHp(dan,'t');
         }
 
         Debug.Log("mocotralleta");
