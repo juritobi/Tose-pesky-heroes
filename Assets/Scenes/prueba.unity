@@ -1509,9 +1509,9 @@ MonoBehaviour:
   Accion5: {fileID: 2139535670}
   Accion6: {fileID: 1865027663}
   DefeatScreen: {fileID: 811524244}
-  VictoryScreen: {fileID: 0}
+  VictoryScreen: {fileID: 1964869896}
   Interface: {fileID: 568548087}
-  MenuPause: {fileID: 0}
+  MenuPause: {fileID: 112308452}
   paused: 0
 --- !u!82 &506727557
 AudioSource:
