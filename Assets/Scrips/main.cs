@@ -78,7 +78,7 @@ public class main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      
         if (player.getDead())
         {
             currentState = BattleStates.DEFEAT;
@@ -210,6 +210,7 @@ public class main : MonoBehaviour
     //  clicked seleccionado
    public void AccionA()
     {
+        Boolean ActionDone = false;
 
         if (currentState == BattleStates.ENEMYC)
         {
@@ -233,6 +234,7 @@ public class main : MonoBehaviour
                     {
                         ReySlime moco = (ReySlime)player;
                         moco.disparoMoco(Target);
+                        ActionDone = true;
 
                     }
 
@@ -248,13 +250,17 @@ public class main : MonoBehaviour
                         {
                             ReySlime moco = (ReySlime)player;
                             moco.disparoMoco(Target);
+                            ActionDone = true;
 
                         }
                     }
                 }
-
-                player.restaCooldowns();
-                StartCoroutine(waiter());
+                if (ActionDone)
+                {
+                    player.restaCooldowns();
+                    StartCoroutine(waiter());
+                }
+               
 
             }
 
@@ -291,6 +297,8 @@ public class main : MonoBehaviour
     void AccionC()
     {
 
+        Boolean ActionDone = false;
+
         if (currentState == BattleStates.ENEMYC)
         {
 
@@ -313,6 +321,7 @@ public class main : MonoBehaviour
                     {
                         ReySlime moco = (ReySlime)player;
                         moco.disparoMoco(Target);
+                        ActionDone = true;
 
                     }
 
@@ -328,13 +337,16 @@ public class main : MonoBehaviour
                         {
                             ReySlime moco = (ReySlime)player;
                             moco.regeneracion();
+                            ActionDone = true;
 
                         }
                     }
                 }
-
-                player.restaCooldowns();
-                StartCoroutine(waiter());
+                if (ActionDone){
+                    player.restaCooldowns();
+                    StartCoroutine(waiter());
+                }
+                
 
             }
 
@@ -348,7 +360,7 @@ public class main : MonoBehaviour
 
     void AccionD()
     {
-
+        Boolean ActionDone = false;
         if (currentState == BattleStates.ENEMYC)
         {
 
@@ -371,6 +383,7 @@ public class main : MonoBehaviour
                     {
                         ReySlime moco = (ReySlime)player;
                         moco.aCenar(Target);
+                        ActionDone = true;
 
                     }
 
@@ -386,13 +399,17 @@ public class main : MonoBehaviour
                         {
                             ReySlime moco = (ReySlime)player;
                             moco.aCenar(Target);
+                            ActionDone = true;
 
                         }
                     }
                 }
-
-                player.restaCooldowns();
-                StartCoroutine(waiter());
+                if (ActionDone)
+                {
+                    player.restaCooldowns();
+                    StartCoroutine(waiter());
+                }
+                
 
             }
 
@@ -470,10 +487,10 @@ public class main : MonoBehaviour
         switch (i)
         {
             case 0:
-                //curarse
+                player.cambiaHp(200, 'c');
                 break;
             case 1:
-                //cosechar almas
+                //  UnityEngine.Random.Range(0, 5);
                 break;
             case 2:
                 //buscar objeto

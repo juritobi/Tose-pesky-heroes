@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
     public static int almas;
+
+    public AudioSource BadAssMusic;
 
     public void StartGame ()
     {
@@ -15,6 +18,11 @@ public class MainMenu : MonoBehaviour {
     {
         Application.Quit();
 
+    }
+    public void CambiaVolumen(Slider vol)
+    {
+        BadAssMusic.volume = vol.value;
+        Debug.Log(vol.value);
     }
 
 
