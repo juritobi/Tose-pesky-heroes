@@ -53,12 +53,12 @@ public class CheckClicked : MonoBehaviour {
             healer.clicked = false;
             mago.clicked = false;
         }
-      /*  if (click is npc)
+       if (click is magoBase)
         {
             dps.clicked = false;
             tank.clicked = false;
             healer.clicked = false;
             espadachin.clicked = false;
-        }*/
+        }
     }
 }
