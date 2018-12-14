@@ -10,11 +10,11 @@ public class magoBase : npc
     protected override void Start()
     {
 
-        mhp = 175;
+        mhp = 150;
         iad = 0;
-        iap = 120;
-        idef = 25;
-        imr = 45;
+        iap = 80;
+        idef = 0;
+        imr = 10;
         base.Start();
     }
     public void decision()

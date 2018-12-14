@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+    public static int almas;
 
     public void StartGame ()
     {
@@ -15,5 +16,7 @@ public class MainMenu : MonoBehaviour {
         Application.Quit();
 
     }
+
+
 
 }

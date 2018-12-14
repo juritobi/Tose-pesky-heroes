@@ -168,7 +168,6 @@ public class main : MonoBehaviour
                 }
                 break;
             case (BattleStates.PLAYER5C):
-                Debug.Log("hola");
                 if (mago.getDead())
                 {
                     currentState = BattleStates.ENEMYC;
