@@ -9,11 +9,11 @@ public class healerBase : npc
 {
     protected override void Start()
     {
-        mhp = 180;
+        mhp = 150;
         iad = 0;
-        iap = 50;
-        idef = 55;
-        imr = 95;
+        iap = 5;
+        idef = 0;
+        imr = 20;
         base.Start();
     }
     public void decision()
@@ -33,7 +33,7 @@ public class healerBase : npc
             npc[] aux = FindObjectsOfType<npc>();
             foreach (npc o in aux)
             {
-                o.cambiaHp((int)Math.Round(o.getMhp() * 0.3, 0), 'c');
+                o.cambiaHp((int)Math.Round(o.getMhp() * 0.1, 0), 'c');
             }
             Debug.Log("curacion all");
         }
@@ -48,7 +48,7 @@ public class healerBase : npc
                     objetivo = o;
                 }
             }
-            objetivo.cambiaHp((int)Math.Round(objetivo.getMhp() * 0.5), 'c');
+            objetivo.cambiaHp((int)Math.Round(objetivo.getMhp() * 0.4), 'c');
             Debug.Log("curacion grande");
         }
         else if (value < 60)
@@ -62,7 +62,7 @@ public class healerBase : npc
                     objetivo = o;
                 }
             }
-            objetivo.cambiaHp((int)Math.Round(objetivo.getMhp() * 0.3), 'c');
+            objetivo.cambiaHp((int)Math.Round(objetivo.getMhp() * 0.2), 'c');
             Debug.Log("curacion pequeña");
         }
         else

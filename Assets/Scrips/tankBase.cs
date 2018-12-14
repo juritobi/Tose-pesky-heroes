@@ -9,11 +9,11 @@ public class tankBase : npc
     protected override void Start()
     {
 
-        mhp = 300;
-        iad = 50;
+        mhp = 280;
+        iad = 20;
         iap = 0;
-        idef = 100;
-        imr = 50;
+        idef = 50;
+        imr = 20;
         base.Start();
     }
     public void decision()
