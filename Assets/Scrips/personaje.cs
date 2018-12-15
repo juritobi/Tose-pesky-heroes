@@ -26,6 +26,8 @@ public class personaje : MonoBehaviour {
     protected List<int> cooldowns;
     protected  bool activo;
 
+    public Sprite sprite;
+
 
 	// Use this for initialization
 	protected virtual void Start() {
@@ -155,13 +157,16 @@ public class personaje : MonoBehaviour {
         {
             if (action == 0)
             {
-                Vector3 pos = new Vector3(transform.position.x - 100, transform.position.y + 50, transform.position.z - 3);
+                sprite = Resources.Load<Sprite>(e);
+                int desp =100 - estados.Count * 50;
+                Vector3 pos = new Vector3(transform.position.x - 100, transform.position.y + desp, transform.position.z - 3);
                 textestadoobj.Add(Instantiate(textestado, pos, Quaternion.identity, transform));
-                textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = e + " - " + turnos;
+                textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = "" + turnos;
+                textestadoobj[textestadoobj.Count - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= sprite ;
             }
             else if (action == 1)
             {
-                textestadoobj[i].GetComponent<TextMesh>().text = e + " - " + turnos;
+                textestadoobj[i].GetComponent<TextMesh>().text = turnos+"";
             }
             else if (action == 2)
             {
@@ -189,6 +194,7 @@ public class personaje : MonoBehaviour {
                 muestraEstado(estados[i], cooldowns[i], 2, i);
                 cooldowns.RemoveAt(i);
                 eliminaEstado(estados[i]);
+                i = i - 1;
             }
         }
 
