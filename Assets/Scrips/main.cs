@@ -21,7 +21,7 @@ public class main : MonoBehaviour
 
     public npc[] all;
 
-   // public Button Accion1;
+    public Button Accion1;
     public Button Accion2;
     public Button Accion3;
     public Button Accion4;
@@ -33,6 +33,8 @@ public class main : MonoBehaviour
     public GameObject VictoryScreen;
     public GameObject Interface;
     public GameObject MenuPause;
+
+    Boolean NerfMocotralleta = false;
 
     
 
@@ -65,7 +67,7 @@ public class main : MonoBehaviour
 
         currentState = BattleStates.ENEMYC;
 
-      //  Accion1.onClick.AddListener(AccionA);
+        Accion1.onClick.AddListener(AccionA);
         Accion2.onClick.AddListener(AccionB);
         Accion3.onClick.AddListener(AccionC);
         Accion4.onClick.AddListener(AccionD);
@@ -91,7 +93,8 @@ public class main : MonoBehaviour
         {
 
             case (BattleStates.ENEMYC):
-
+               
+                //  Reialm of the lazy ctrl-c ctrl-v 
                 if (AllTargetsDestroyed())
                 {
                     currentState = BattleStates.VICTORY;
@@ -107,6 +110,7 @@ public class main : MonoBehaviour
                 break;
 
             case (BattleStates.PLAYER1C):
+                
                 if (tank.getDead())
                 {
                     tank.clicked = false;
@@ -186,6 +190,10 @@ public class main : MonoBehaviour
 
                     paused = true;
                 }
+
+                BlockButtons(true);
+
+
                 break;
 
             case (BattleStates.VICTORY):    //  implementar plss
@@ -212,6 +220,21 @@ public class main : MonoBehaviour
 
         //ataque.onClick.AddListener(ataqueClick);
     }
+
+    void BlockButtons(bool b)
+    {
+        Accion1.interactable = b;
+        Accion2.interactable = b;
+        Accion3.interactable = b;
+        Accion4.interactable = b;
+        Accion5.interactable = b;
+        Accion6.interactable = b;
+    }
+
+
+
+
+
     //  clicked seleccionado
    public void AccionA()
     {
@@ -262,6 +285,7 @@ public class main : MonoBehaviour
                 }
                 if (ActionDone)
                 {
+                    BlockButtons(false);
                     player.restaCooldowns();
                     StartCoroutine(waiter());
                 }
@@ -287,7 +311,7 @@ public class main : MonoBehaviour
             }
 
 
-
+            BlockButtons(false);
             player.restaCooldowns();
             StartCoroutine(waiter());
 
@@ -301,66 +325,23 @@ public class main : MonoBehaviour
 
     void AccionC()
     {
-
-        Boolean ActionDone = false;
+        
 
         if (currentState == BattleStates.ENEMYC)
         {
-
-            npc Target = null;
-
-            for (int i = 0; i < all.Length; i++)
-            {
-                if (all[i].clicked)
-                {
-                    Target = all[i];
-
-                }
-            }
-            if (Target != null)
-            {
-                if (tank.getDead())
-                {
-                    //  aqui va lo que quiera que haga el moco
-                    if (player is ReySlime)
+            if (player is ReySlime)
                     {
                         ReySlime moco = (ReySlime)player;
-                        moco.disparoMoco(Target);
-                        ActionDone = true;
-
-                    }
-
-                    //  all[Target].cambiaHp(10000, 'f');                  
-
-                }
-                else
-                {
-                    if (Target is tankBase)
-                    {
-                        //  aqui va lo que quiera que haga el moco
-                        if (player is ReySlime)
-                        {
-                            ReySlime moco = (ReySlime)player;
-                            moco.regeneracion();
-                            ActionDone = true;
-
-                        }
-                    }
-                }
-                if (ActionDone){
-                    player.restaCooldowns();
-                    StartCoroutine(waiter());
-                }
-                
-
+                        moco.regeneracion();
             }
-
+            BlockButtons(false);
+            player.restaCooldowns();
+            StartCoroutine(waiter());
+            }
             for (int i = 0; i < all.Length; i++)
             {
                 all[i].clicked = false;
-            }
-
-        }
+            }     
     }
 
     void AccionD()
@@ -411,6 +392,7 @@ public class main : MonoBehaviour
                 }
                 if (ActionDone)
                 {
+                    BlockButtons(false);
                     player.restaCooldowns();
                     StartCoroutine(waiter());
                 }
@@ -437,6 +419,7 @@ public class main : MonoBehaviour
                 moco.golpeTemblor(all);
 
             }
+            BlockButtons(false);
             player.restaCooldowns();
             StartCoroutine(waiter());
 
@@ -444,12 +427,13 @@ public class main : MonoBehaviour
             {
                 all[i].clicked = false;
             }
+
         }
     }
 
     void AccionF()
     {
-
+       
         if (currentState == BattleStates.ENEMYC)
         {
             //  aqui va lo que quiera que haga el moco
@@ -459,20 +443,23 @@ public class main : MonoBehaviour
                 moco.mocotralleta(all);
 
             }
+            BlockButtons(false);
             player.restaCooldowns();
             StartCoroutine(waiter());
+
 
             for (int i = 0; i < all.Length; i++)
             {
                 all[i].clicked = false;
             }
+           
         }
     }
 
 
     bool AllTargetsDestroyed()
     {
-        if (tank.getDead() && dps.getDead() && healer.getDead() && espadachin.getDead())
+        if (tank.getDead() && dps.getDead() && healer.getDead() && espadachin.getDead() && mago.getDead())
         {
             return true;
         }
@@ -495,7 +482,8 @@ public class main : MonoBehaviour
                 player.cambiaHp(200, 'c');
                 break;
             case 1:
-                //  UnityEngine.Random.Range(0, 5);
+                int num = UnityEngine.Random.Range(25,35);
+                MainMenu.almas+=num;
                 break;
             case 2:
                 //buscar objeto
@@ -566,7 +554,7 @@ public class main : MonoBehaviour
 		}
 	}
     */
-
+    
 	IEnumerator waiter(){
 
         yield return new WaitForSeconds(1);

@@ -67,8 +67,8 @@ public class ReySlime : personaje {
     }
     public void regeneracion()
     {
-        int disminuye = (int)(0.02 * hp);
-        cambiaHp(disminuye, 't');
+        int disminuye = (int)(0.2 * hp);
+        cambiaHp(disminuye, 'c');
         recibeEstado("habregeneracion", 4);
         devorar();
         eliminaEstado("quemado");
