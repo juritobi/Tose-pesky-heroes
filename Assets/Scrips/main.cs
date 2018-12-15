@@ -296,66 +296,24 @@ public class main : MonoBehaviour
 
     void AccionC()
     {
-
         Boolean ActionDone = false;
 
         if (currentState == BattleStates.ENEMYC)
         {
-
-            npc Target = null;
-
-            for (int i = 0; i < all.Length; i++)
-            {
-                if (all[i].clicked)
-                {
-                    Target = all[i];
-
-                }
-            }
-            if (Target != null)
-            {
-                if (tank.getDead())
-                {
-                    //  aqui va lo que quiera que haga el moco
-                    if (player is ReySlime)
+            if (player is ReySlime)
                     {
                         ReySlime moco = (ReySlime)player;
-                        moco.disparoMoco(Target);
+                        moco.regeneracion();
                         ActionDone = true;
 
                     }
-
-                    //  all[Target].cambiaHp(10000, 'f');                  
-
-                }
-                else
-                {
-                    if (Target is tankBase)
-                    {
-                        //  aqui va lo que quiera que haga el moco
-                        if (player is ReySlime)
-                        {
-                            ReySlime moco = (ReySlime)player;
-                            moco.regeneracion();
-                            ActionDone = true;
-
-                        }
-                    }
-                }
-                if (ActionDone){
                     player.restaCooldowns();
                     StartCoroutine(waiter());
-                }
-                
-
             }
-
             for (int i = 0; i < all.Length; i++)
             {
                 all[i].clicked = false;
-            }
-
-        }
+            }     
     }
 
     void AccionD()
@@ -467,7 +425,7 @@ public class main : MonoBehaviour
 
     bool AllTargetsDestroyed()
     {
-        if (tank.getDead() && dps.getDead() && healer.getDead() && espadachin.getDead())
+        if (tank.getDead() && dps.getDead() && healer.getDead() && espadachin.getDead() && mago.getDead())
         {
             return true;
         }
