@@ -138,20 +138,23 @@ public class personaje : MonoBehaviour {
     
     public void muestraEstado(string e, int turnos, int action, int i)
     {
-        if (action == 0)
+        if (e != "hablluvia" && e != "habregeneracion" && e != "habcenar" && e != "habtemblor" && e != "habmetralleta")
         {
-            Vector3 pos = new Vector3(transform.position.x-100, transform.position.y+50, transform.position.z - 3);
-            textestadoobj.Add(Instantiate(textestado, pos, Quaternion.identity, transform));
-            textestadoobj[textestadoobj.Count-1].GetComponent<TextMesh>().text = e + " - " + turnos;
-        }
-        else if (action == 1)
-        {
-            textestadoobj[i].GetComponent<TextMesh>().text = e + " - " + turnos;
-        }
-        else if(action==2)
-        {
-            Destroy(textestadoobj[i]);
-            textestadoobj.RemoveAt(i);
+            if (action == 0)
+            {
+                Vector3 pos = new Vector3(transform.position.x - 100, transform.position.y + 50, transform.position.z - 3);
+                textestadoobj.Add(Instantiate(textestado, pos, Quaternion.identity, transform));
+                textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = e + " - " + turnos;
+            }
+            else if (action == 1)
+            {
+                textestadoobj[i].GetComponent<TextMesh>().text = e + " - " + turnos;
+            }
+            else if (action == 2)
+            {
+                Destroy(textestadoobj[i]);
+                textestadoobj.RemoveAt(i);
+            }
         }
     }
 
