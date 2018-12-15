@@ -477,7 +477,8 @@ public class main : MonoBehaviour
                 player.cambiaHp(200, 'c');
                 break;
             case 1:
-                //  UnityEngine.Random.Range(0, 5);
+                int num = UnityEngine.Random.Range(25,35);
+                MainMenu.almas+=num;
                 break;
             case 2:
                 //buscar objeto

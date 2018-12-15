@@ -6,9 +6,17 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
     public static int almas;
+    public Text txt;
 
     public AudioSource BadAssMusic;
 
+    void Start(){
+        txt.text = "0";
+    }
+
+    void Update(){
+        txt.text = almas.ToString();
+    }
     public void StartGame ()
     {
         SceneManager.LoadScene("prueba");
