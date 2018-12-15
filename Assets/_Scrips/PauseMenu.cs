@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject button;
     public GameObject screen;
     public GameObject Overlay;
+    public GameObject Txt;
     public Slider barrita;
     public AudioSource vol;
     private bool isOpen;
@@ -19,6 +20,8 @@ public class PauseMenu : MonoBehaviour {
         screen.SetActive(false);
         button.SetActive(false);
         Overlay.SetActive(true);
+        barrita.gameObject.SetActive(false);
+        Txt.SetActive(false);
 
     }
 	
@@ -30,7 +33,9 @@ public class PauseMenu : MonoBehaviour {
             screen.SetActive(true);
             button.SetActive(true);
             Overlay.SetActive(false);
-           
+            Txt.SetActive(true);
+            barrita.gameObject.SetActive(true);
+
             isOpen = true;
         }
         else if (Input.GetKeyDown("escape") && isOpen)
@@ -38,7 +43,8 @@ public class PauseMenu : MonoBehaviour {
             // Debug.Log("inactivo");
             screen.SetActive(false);
             button.SetActive(false);
-          
+            barrita.gameObject.SetActive(false);
+            Txt.SetActive(false);
             Overlay.SetActive(true);
             isOpen = false;
         }

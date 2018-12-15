@@ -397,7 +397,8 @@ MonoBehaviour:
   button: {fileID: 1882528500}
   screen: {fileID: 998659566}
   Overlay: {fileID: 1246685314}
-  barrita: {fileID: 0}
+  Txt: {fileID: 414080182}
+  barrita: {fileID: 912098317}
   vol: {fileID: 506727557}
 --- !u!1 &123407337
 GameObject:
@@ -1595,7 +1596,7 @@ GameObject:
   - component: {fileID: 414080185}
   - component: {fileID: 414080184}
   m_Layer: 0
-  m_Name: TextMeshPro Text
+  m_Name: TxTVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3914,7 +3915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.63529414}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
