@@ -12,9 +12,24 @@ public class npc : personaje {
 
 	public bool clicked;
     public CheckClicked MeAndJustMe;
-	// Use this for initialization
-	protected override void Start () {
+    public Animator spriter;
+    public String anim;
+    // Use this for initialization
+    protected override void Start () {
         base.Start();
+    }
+    protected override void Update()
+    {
+        base.Update();
+       // StartCoroutine(waitchange());
+        if (clicked == true)
+        {
+            spriter.Play(anim, - 1, 0);
+        }
+       /* else
+        {
+            spriter.Play("none");
+        }*/
     }
     public void MyDelay( int seconds ){
   		DateTime dt = DateTime.Now + TimeSpan.FromSeconds( seconds );
@@ -25,4 +40,8 @@ public class npc : personaje {
 		clicked = true;
         MeAndJustMe.Check(this);
 	}
+    IEnumerator waitchange()
+    {
+        yield return new WaitForSeconds(1);
+    }
 }
