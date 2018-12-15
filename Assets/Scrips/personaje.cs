@@ -24,6 +24,7 @@ public class personaje : MonoBehaviour {
     public bool dead;
     protected List<string> estados;
     protected List<int> cooldowns;
+    protected  bool activo;
 
 
 	// Use this for initialization
@@ -34,6 +35,7 @@ public class personaje : MonoBehaviour {
         ap = iap;
         def = idef;
         mr = imr;
+        activo=true;
         barH.maxValue = mhp;
 		estados=new List<string>();
         cooldowns = new List<int>();
@@ -62,6 +64,7 @@ public class personaje : MonoBehaviour {
                 if (total > 0) { total = 0; }
                 break;
             default:total = 0;break;
+            
         }
 
         hp = hp - total;
@@ -127,6 +130,16 @@ public class personaje : MonoBehaviour {
                 case "ataque1":
                     cambiaAtaque((int)Math.Round(iad * 0.2, 0));
                     break;
+                case "congelado":
+                    activo=false;
+                    Debug.Log("congelado entra en switch");
+                    break;
+                case "quemado":
+                    cambiaHp((int)0.1*mhp,'t');
+                    Debug.Log("ay que m e quemo");
+                    
+                    break;
+
                 default:break;
             }
 
@@ -191,6 +204,9 @@ public class personaje : MonoBehaviour {
             case "ataque1":
                 cambiaAtaque((int)Math.Round(-(iad * 0.2), 0));
                 break;
+            case "congelado":
+                activo=true;
+                break;
             default: break;
         }
         estados.Remove(e);
@@ -235,6 +251,9 @@ public class personaje : MonoBehaviour {
     public int getMr()
     {
         return mr;
+    }
+    public bool getActivo(){
+        return activo;
     }
     
 

@@ -21,6 +21,7 @@ public class healerBase : npc
         personaje objetivo = FindObjectOfType<ReySlime>();
         System.Random rnd = new System.Random();
         int value = rnd.Next(1, 100);
+        if(activo==true){
 
         if (value < 6)
         {
@@ -71,6 +72,8 @@ public class healerBase : npc
             Debug.Log("healer basico");
         }
         animator.transform.GetChild(0).GetComponent<Animator>().Play("heal", -1, 0);
+        }
+        Debug.Log("estoy congelado");
     }
 
 

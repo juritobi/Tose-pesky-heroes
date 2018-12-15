@@ -22,6 +22,7 @@ public class tankBase : npc
         personaje objetivo = FindObjectOfType<ReySlime>();
         System.Random rnd = new System.Random();
         int value = rnd.Next(1, 100);
+        if(activo==true){
 
         if (value < 10)
         {
@@ -49,6 +50,10 @@ public class tankBase : npc
             objetivo.cambiaHp(ad, 'f');
         }
         animator.transform.GetChild(0).GetComponent<Animator>().Play("tank", -1, 0);
+        }
+    else 
+        Debug.Log("estoy congelado");
     }
+  
     
 }

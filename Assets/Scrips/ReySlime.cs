@@ -38,6 +38,8 @@ public class ReySlime : personaje {
         int aumenta = (int)(0.1 * hp);
         cambiaHp(aumenta, 'c');
         Debug.Log("devorar");
+       
+        
     }
     public void disparoMoco(npc n1)
     {
@@ -68,6 +70,7 @@ public class ReySlime : personaje {
         int disminuye = (int)(0.02 * hp);
         cambiaHp(disminuye, 't');
         recibeEstado("habregeneracion", 4);
+        devorar();
         eliminaEstado("quemado");
         eliminaEstado("envenenado");
         eliminaEstado("congelado");
