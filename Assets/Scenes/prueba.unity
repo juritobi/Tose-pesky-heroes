@@ -370,10 +370,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 414080183}
   - {fileID: 998659567}
   - {fileID: 1882528501}
   - {fileID: 912098316}
-  - {fileID: 414080183}
   m_Father: {fileID: 1474578057}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1882528500}
   screen: {fileID: 998659566}
-  Overlay: {fileID: 1246685314}
+  Overlay: {fileID: 568548087}
   Txt: {fileID: 414080182}
   barrita: {fileID: 912098317}
   vol: {fileID: 506727557}
@@ -1614,7 +1614,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 112308453}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1650,8 +1650,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2399207694
-  m_fontColor: {r: 0.05660379, g: 0.0040049846, b: 0.0040049846, a: 0.56078434}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
@@ -3719,7 +3719,7 @@ RectTransform:
   - {fileID: 1372676069}
   - {fileID: 444480703}
   m_Father: {fileID: 112308453}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3895,7 +3895,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 112308453}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7785,7 +7785,7 @@ RectTransform:
   m_Children:
   - {fileID: 213750748}
   m_Father: {fileID: 112308453}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
