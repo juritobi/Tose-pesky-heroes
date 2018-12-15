@@ -1908,6 +1908,7 @@ MonoBehaviour:
   imr: 0
   mr: 0
   dead: 0
+  sprite: {fileID: 0}
   clicked: 0
   MeAndJustMe: {fileID: 1687765440}
   spriter: {fileID: 304312852}
@@ -4403,6 +4404,19 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 102785598622124294, guid: c0e27551117bf6442852a99531585f5b,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001436823396890, guid: c0e27551117bf6442852a99531585f5b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001436823396890, guid: c0e27551117bf6442852a99531585f5b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e27551117bf6442852a99531585f5b, type: 3}
 --- !u!1 &1372676068
@@ -4540,6 +4554,7 @@ MonoBehaviour:
   imr: 0
   mr: 0
   dead: 0
+  sprite: {fileID: 0}
   clicked: 0
   MeAndJustMe: {fileID: 1687765440}
   spriter: {fileID: 875498311}
@@ -5029,6 +5044,7 @@ MonoBehaviour:
   imr: 0
   mr: 0
   dead: 0
+  sprite: {fileID: 0}
   clicked: 0
   MeAndJustMe: {fileID: 1687765440}
   spriter: {fileID: 716794208}
@@ -5842,6 +5858,7 @@ MonoBehaviour:
   imr: 0
   mr: 0
   dead: 0
+  sprite: {fileID: 21300000, guid: c607e9cd55c0e9845b638f720d431960, type: 3}
   clicked: 0
   MeAndJustMe: {fileID: 1687765440}
   spriter: {fileID: 1246838219}
@@ -6006,6 +6023,7 @@ MonoBehaviour:
   imr: 0
   mr: 0
   dead: 0
+  sprite: {fileID: 21300000, guid: c607e9cd55c0e9845b638f720d431960, type: 3}
 --- !u!1 &1734557928
 GameObject:
   m_ObjectHideFlags: 0
@@ -6067,6 +6085,7 @@ MonoBehaviour:
   imr: 0
   mr: 0
   dead: 0
+  sprite: {fileID: 0}
   clicked: 0
   MeAndJustMe: {fileID: 1687765440}
   spriter: {fileID: 577924458}
