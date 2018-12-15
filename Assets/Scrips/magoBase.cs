@@ -7,12 +7,14 @@ using System;
 
 public class magoBase : npc
 {
+    protected int pasivasiono;
     protected override void Start()
     {
-
+        
         mhp = 150;
         iad = 0;
         iap = 80;
+        pasivasiono=0;
         idef = 0;
         imr = 10;
         base.Start();
@@ -26,10 +28,13 @@ public class magoBase : npc
 
         if (hp == mhp)
         {
+            if(pasivasiono==0)
             ap = (int)Math.Round(ap + iap * 1.2, 0);
+            pasivasiono=1;
         }
         else
         {
+            pasivasiono=0;
             ap = iap;
         }
 
