@@ -293,12 +293,12 @@ RectTransform:
   - {fileID: 1969810771}
   - {fileID: 716639283}
   - {fileID: 1013514800}
-  m_Father: {fileID: 1397149200}
-  m_RootOrder: 7
+  m_Father: {fileID: 1029771279}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 740.00006, y: -821.9729}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 621.5, y: 108.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &31781292
@@ -1072,7 +1072,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0.7
-  m_Text: esto hace muchas putas mierdas que molan mazo
+  m_Text: El slime explota y provoca una lluvia de sus fluidos. Completamente asqueroso
+    y mortal.
 --- !u!222 &244898560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1151,7 +1152,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0.7
-  m_Text: esto hace muchas putas mierdas que molan mazo
+  m_Text: "Devora a un enemigo debilitado y c\xFArate a\xFAn m\xE1s de lo normal.
+    \xA1Que aproveche!"
 --- !u!222 &247976389
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1878,9 +1880,9 @@ RectTransform:
   m_Father: {fileID: 1029771279}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 310.75, y: -385.65}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 621.5, y: 108.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495816929
@@ -2050,9 +2052,9 @@ RectTransform:
   m_Father: {fileID: 1029771279}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 310.75, y: -496.06668}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 621.5, y: 108.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &565752236
@@ -2143,7 +2145,7 @@ RectTransform:
   m_Children:
   - {fileID: 912842696}
   m_Father: {fileID: 1397149200}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2223,9 +2225,9 @@ RectTransform:
   m_Father: {fileID: 1029771279}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 310.75, y: -164.81668}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 621.5, y: 108.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &587047363
@@ -2682,7 +2684,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0.7
-  m_Text: esto hace muchas putas mierdas que molan mazo
+  m_Text: "Acumula una gran cantidad de moco y golpea el suelo con inmensa potencia,
+    pero existe la posibilidad de que los enemigos eviten este ataque saltando. \r"
 --- !u!222 &700535349
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3611,9 +3614,9 @@ RectTransform:
   m_Father: {fileID: 1029771279}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 310.75, y: -54.4}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 621.5, y: 108.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &948890687
@@ -3743,7 +3746,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0.7
-  m_Text: esto hace muchas putas mierdas que molan mazo
+  m_Text: "\xA1El ataque definitivo del slime! Utiliza su moco como una metralleta
+    y golpea a 10 enemigos aleatorios ignorando sus defensas"
 --- !u!222 &1013514802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3788,13 +3792,14 @@ RectTransform:
   - {fileID: 1504967630}
   - {fileID: 495816928}
   - {fileID: 565752235}
+  - {fileID: 31781291}
   m_Father: {fileID: 1795207876}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 328.60004, y: -200.25516}
-  m_SizeDelta: {x: 621.5, y: 662.5}
+  m_AnchoredPosition: {x: 328.60004, y: -286.6}
+  m_SizeDelta: {x: 0, y: 835.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1029771280
 MonoBehaviour:
@@ -4836,7 +4841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1397149200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4855,7 +4860,6 @@ RectTransform:
   - {fileID: 1245406808}
   - {fileID: 45982280}
   - {fileID: 1292495829}
-  - {fileID: 31781291}
   - {fileID: 577598636}
   - {fileID: 1795207876}
   m_Father: {fileID: 1514457011}
@@ -4902,9 +4906,9 @@ RectTransform:
   m_Father: {fileID: 1029771279}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 310.75, y: -275.23334}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 621.5, y: 108.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1504967631
@@ -5135,7 +5139,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0.7
-  m_Text: esto hace muchas putas mierdas que molan mazo
+  m_Text: "Regen\xE9rate y c\xFArate de cualquier posible estado alterado. Durante
+    tres turnos recuperar\xE1s un 10% de tu vida m\xE1xima y ser\xE1s inmune a estados.\r"
 --- !u!222 &1711822775
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5252,7 +5257,7 @@ RectTransform:
   m_Children:
   - {fileID: 1029771279}
   m_Father: {fileID: 1397149200}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5813,7 +5818,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0.7
-  m_Text: esto hace muchas putas mierdas que molan mazo
+  m_Text: "\xA1Dispara un trozo de ti mismo y paraliza a un enemigo! \xA1En toda la
+    cara!"
 --- !u!222 &2025899133
 CanvasRenderer:
   m_ObjectHideFlags: 0
