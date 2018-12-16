@@ -22,7 +22,7 @@ public class personaje : MonoBehaviour {
     public int imr;
     public int mr;
     public bool dead;
-    protected List<string> estados;
+    public List<string> estados;
     protected List<int> cooldowns;
     protected  bool activo;
 
@@ -182,9 +182,19 @@ public class personaje : MonoBehaviour {
         {
             cambiaHp((int) Math.Round(mhp * 0.05), 't');
         }
+        if (estados.Contains("quemado"))
+        {
+            cambiaHp((int)Math.Round(mhp * 0.1), 't');
+        }
+        if (estados.Contains("habregeneracion"))
+        {            
+            cambiaHp((int)(0.1 * mhp), 'c');
+        }
+
         for (int i =0;i< cooldowns.Count; i++)
         {
             cooldowns[i]= cooldowns[i]-1;
+            
             if (cooldowns[i] != 0)
             {
                 muestraEstado(estados[i], cooldowns[i], 1, i);

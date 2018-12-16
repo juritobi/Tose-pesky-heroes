@@ -34,13 +34,14 @@ public class main : MonoBehaviour
     public GameObject Interface;
     public GameObject MenuPause;
 
-    Boolean NerfMocotralleta = false;
+ 
 
     
 
    
 
     public bool paused = false;
+    bool OneCoolDown = true;
 
 
 
@@ -93,17 +94,17 @@ public class main : MonoBehaviour
         {
 
             case (BattleStates.ENEMYC):
-               
-                //  Reialm of the lazy ctrl-c ctrl-v 
-                if (AllTargetsDestroyed())
-                {
-                    currentState = BattleStates.VICTORY;
-                }
 
-                if (player.getDead())
+                //  Reialm of the lazy ctrl-c ctrl-v 
+                //  Debug.Log(OneCoolDown);
+                if (OneCoolDown)
                 {
-                    currentState = BattleStates.DEFEAT;
+                    Debug.Log(OneCoolDown);
+                    player.restaCooldowns();
+                    OneCoolDown = false;
                 }
+                
+
 
 
                 paused = false;
@@ -137,8 +138,7 @@ public class main : MonoBehaviour
                 else if (paused)
                 {
                      dps.decision();
-                    dps.restaCooldowns();
-                   
+                    dps.restaCooldowns();                   
                     StartCoroutine(waiter());
                     paused = false;
                 }
@@ -153,8 +153,7 @@ public class main : MonoBehaviour
                 else if (!paused)
                 {
                       healer.decision();
-                    healer.restaCooldowns();
-                  
+                    healer.restaCooldowns();                  
                     StartCoroutine(waiter());
                     paused = true;
                 }
@@ -168,8 +167,7 @@ public class main : MonoBehaviour
                 else if (paused)
                 {
                      espadachin.decision();
-                    espadachin.restaCooldowns();
-                   
+                    espadachin.restaCooldowns();                   
                     StartCoroutine(waiter());
 
                     paused = false;
@@ -184,14 +182,13 @@ public class main : MonoBehaviour
                 else if (!paused)
                 {
                     mago.decision();
-                    mago.restaCooldowns();
-                    
+                    mago.restaCooldowns();                    
                     StartCoroutine(waiter());
-
                     paused = true;
                 }
-
+                
                 BlockButtons(true);
+                OneCoolDown = true;
 
 
                 break;
@@ -286,7 +283,7 @@ public class main : MonoBehaviour
                 if (ActionDone)
                 {
                     BlockButtons(false);
-                    player.restaCooldowns();
+                    //   player.restaCooldowns();
                     StartCoroutine(waiter());
                 }
                
@@ -302,18 +299,26 @@ public class main : MonoBehaviour
 
     void AccionB()  //  Lluvia Acida (5 adversarii)
     {
+        bool ActionDone = false;
         if (currentState == BattleStates.ENEMYC)
         {
             if (player is ReySlime)
             {
                 ReySlime Moco = (ReySlime)player;
-                Moco.lluviaAcida(all);
+                if (!player.estados.Contains("hablluvia")) {
+                    Moco.lluviaAcida(all);
+                    ActionDone = true;
+                }
             }
 
+            if (ActionDone)
+            {
+                BlockButtons(false);
+                // player.restaCooldowns();
+                StartCoroutine(waiter());
 
-            BlockButtons(false);
-            player.restaCooldowns();
-            StartCoroutine(waiter());
+            }
+           
 
         }
 
@@ -325,18 +330,27 @@ public class main : MonoBehaviour
 
     void AccionC()
     {
-        
+        bool ActionDone = false;
 
         if (currentState == BattleStates.ENEMYC)
         {
             if (player is ReySlime)
-                    {
-                        ReySlime moco = (ReySlime)player;
-                        moco.regeneracion();
+            {
+                ReySlime moco = (ReySlime)player;
+                if (!player.estados.Contains("habcenar"))
+                {
+                    moco.regeneracion();
+                    ActionDone = true;
+                }
             }
-            BlockButtons(false);
-            player.restaCooldowns();
-            StartCoroutine(waiter());
+            if (ActionDone)
+            {
+                BlockButtons(false);
+                // player.restaCooldowns();
+                StartCoroutine(waiter());
+
+            }
+            
             }
             for (int i = 0; i < all.Length; i++)
             {
@@ -368,8 +382,11 @@ public class main : MonoBehaviour
                     if (player is ReySlime)
                     {
                         ReySlime moco = (ReySlime)player;
-                        moco.aCenar(Target);
-                        ActionDone = true;
+                        if (!player.estados.Contains("habcenar")){
+                            moco.aCenar(Target);
+                            ActionDone = true;
+                        }
+                       
 
                     }
 
@@ -384,8 +401,12 @@ public class main : MonoBehaviour
                         if (player is ReySlime)
                         {
                             ReySlime moco = (ReySlime)player;
-                            moco.aCenar(Target);
-                            ActionDone = true;
+                            if (!player.estados.Contains("habcenar"))
+                            {
+                                moco.aCenar(Target);
+                                ActionDone = true;
+                            }
+                            
 
                         }
                     }
@@ -393,7 +414,7 @@ public class main : MonoBehaviour
                 if (ActionDone)
                 {
                     BlockButtons(false);
-                    player.restaCooldowns();
+                  //  player.restaCooldowns();
                     StartCoroutine(waiter());
                 }
                 
@@ -409,6 +430,7 @@ public class main : MonoBehaviour
 
     void AccionE()  //  temblor wow
     {
+        bool ActionDone = false;
 
         if (currentState == BattleStates.ENEMYC)
         {
@@ -416,12 +438,20 @@ public class main : MonoBehaviour
             if (player is ReySlime)
             {
                 ReySlime moco = (ReySlime)player;
-                moco.golpeTemblor(all);
+                if (!player.estados.Contains("habtemblor"))
+                {
+                    moco.golpeTemblor(all);
+                    ActionDone = true;
+                }
 
             }
-            BlockButtons(false);
-            player.restaCooldowns();
-            StartCoroutine(waiter());
+            if (ActionDone)
+            {
+                BlockButtons(false);
+                // player.restaCooldowns();
+                StartCoroutine(waiter());
+            }
+           
 
             for (int i = 0; i < all.Length; i++)
             {
@@ -433,6 +463,7 @@ public class main : MonoBehaviour
 
     void AccionF()
     {
+        bool ActionDone = false;
        
         if (currentState == BattleStates.ENEMYC)
         {
@@ -440,12 +471,22 @@ public class main : MonoBehaviour
             if (player is ReySlime)
             {
                 ReySlime moco = (ReySlime)player;
-                moco.mocotralleta(all);
+
+                if (!player.estados.Contains("habmetralleta"))
+                {
+                    moco.mocotralleta(all);
+                    ActionDone = true;
+                }
 
             }
-            BlockButtons(false);
-            player.restaCooldowns();
-            StartCoroutine(waiter());
+
+            if (ActionDone)
+            {
+                BlockButtons(false);
+                // player.restaCooldowns();
+                StartCoroutine(waiter());
+            }
+           
 
 
             for (int i = 0; i < all.Length; i++)
