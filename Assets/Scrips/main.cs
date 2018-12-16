@@ -337,7 +337,7 @@ public class main : MonoBehaviour
             if (player is ReySlime)
             {
                 ReySlime moco = (ReySlime)player;
-                if (!player.estados.Contains("habcenar"))
+                if (!player.estados.Contains("habregeneracion"))
                 {
                     moco.regeneracion();
                     ActionDone = true;
