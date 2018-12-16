@@ -13,15 +13,14 @@ public class magoBase : npc
         
         mhp = 150;
         iad = 0;
-        iap = 80;
+        iap = 50;
         pasivasiono=0;
-        idef = 0;
-        imr = 10;
+        idef = 10;
+        imr = 20;
         base.Start();
     }
     public void decision()
     {
-        Debug.Log("soy un mago");
         personaje objetivo = FindObjectOfType<ReySlime>();
         System.Random rnd = new System.Random();
         int value = rnd.Next(1, 100);

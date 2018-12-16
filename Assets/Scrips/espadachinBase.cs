@@ -10,11 +10,11 @@ public class espadachinBase : npc
     protected override void Start()
     {
 
-        mhp = 220;
-        iad = 80;
+        mhp = 200;
+        iad = 60;
         iap = 0;
-        idef = 10;
-        imr = 0;
+        idef = 20;
+        imr = 10;
         base.Start();
     }
     public void decision()
