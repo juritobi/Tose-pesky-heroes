@@ -164,10 +164,12 @@ public class personaje : MonoBehaviour {
             if (action == 0)
             {
                 sprite = Resources.Load<Sprite>(e);
-                int desp =100 - estados.Count * 50;
-                Vector3 pos = new Vector3(transform.position.x - 100, transform.position.y + desp, transform.position.z - 3);
+                //int desp =100 - estados.Count * 50;
+                int desp =-40 + estados.Count * 30;
+
+                Vector3 pos = new Vector3(transform.position.x +desp, transform.position.y + 100, transform.position.z - 3);
                 textestadoobj.Add(Instantiate(textestado, pos, Quaternion.identity, transform));
-                textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = "" + turnos;
+               // textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = "" + turnos;
                 textestadoobj[textestadoobj.Count - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= sprite ;
             }
             else if (action == 1)
