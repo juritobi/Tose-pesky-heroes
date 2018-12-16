@@ -24,6 +24,9 @@ public class personaje : MonoBehaviour {
     public bool dead;
     protected List<string> estados;
     protected List<int> cooldowns;
+    protected  bool activo;
+
+    public Sprite sprite;
 
 
 	// Use this for initialization
@@ -34,6 +37,7 @@ public class personaje : MonoBehaviour {
         ap = iap;
         def = idef;
         mr = imr;
+        activo=true;
         barH.maxValue = mhp;
 		estados=new List<string>();
         cooldowns = new List<int>();
@@ -62,6 +66,7 @@ public class personaje : MonoBehaviour {
                 if (total > 0) { total = 0; }
                 break;
             default:total = 0;break;
+            
         }
 
         hp = hp - total;
@@ -127,6 +132,16 @@ public class personaje : MonoBehaviour {
                 case "ataque1":
                     cambiaAtaque((int)Math.Round(iad * 0.2, 0));
                     break;
+                case "congelado":
+                    activo=false;
+                    Debug.Log("congelado entra en switch");
+                    break;
+                case "quemado":
+                    cambiaHp((int)0.1*mhp,'t');
+                    Debug.Log("ay que m e quemo");
+                    
+                    break;
+
                 default:break;
             }
 
@@ -142,13 +157,16 @@ public class personaje : MonoBehaviour {
         {
             if (action == 0)
             {
-                Vector3 pos = new Vector3(transform.position.x - 100, transform.position.y + 50, transform.position.z - 3);
+                sprite = Resources.Load<Sprite>(e);
+                int desp =100 - estados.Count * 50;
+                Vector3 pos = new Vector3(transform.position.x - 100, transform.position.y + desp, transform.position.z - 3);
                 textestadoobj.Add(Instantiate(textestado, pos, Quaternion.identity, transform));
-                textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = e + " - " + turnos;
+                textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = "" + turnos;
+                textestadoobj[textestadoobj.Count - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= sprite ;
             }
             else if (action == 1)
             {
-                textestadoobj[i].GetComponent<TextMesh>().text = e + " - " + turnos;
+                textestadoobj[i].GetComponent<TextMesh>().text = turnos+"";
             }
             else if (action == 2)
             {
@@ -176,6 +194,7 @@ public class personaje : MonoBehaviour {
                 muestraEstado(estados[i], cooldowns[i], 2, i);
                 cooldowns.RemoveAt(i);
                 eliminaEstado(estados[i]);
+                i = i - 1;
             }
         }
 
@@ -193,6 +212,9 @@ public class personaje : MonoBehaviour {
                 break;
             case "ataque1":
                 cambiaAtaque((int)Math.Round(-(iad * 0.2), 0));
+                break;
+            case "congelado":
+                activo=true;
                 break;
             default: break;
         }
@@ -238,6 +260,9 @@ public class personaje : MonoBehaviour {
     public int getMr()
     {
         return mr;
+    }
+    public bool getActivo(){
+        return activo;
     }
     
 

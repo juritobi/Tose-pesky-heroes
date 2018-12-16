@@ -120,8 +120,9 @@ public class main : MonoBehaviour
                 else if (!paused)
                 {
                     StartCoroutine(waiter());
+                     tank.decision();
                     tank.restaCooldowns();
-                    tank.decision();
+                   
                     paused = true;
                 }
                 break;
@@ -135,8 +136,9 @@ public class main : MonoBehaviour
                 }
                 else if (paused)
                 {
+                     dps.decision();
                     dps.restaCooldowns();
-                    dps.decision();
+                   
                     StartCoroutine(waiter());
                     paused = false;
                 }
@@ -150,8 +152,9 @@ public class main : MonoBehaviour
                 }
                 else if (!paused)
                 {
+                      healer.decision();
                     healer.restaCooldowns();
-                    healer.decision();
+                  
                     StartCoroutine(waiter());
                     paused = true;
                 }
@@ -164,8 +167,9 @@ public class main : MonoBehaviour
                 }
                 else if (paused)
                 {
+                     espadachin.decision();
                     espadachin.restaCooldowns();
-                    espadachin.decision();
+                   
                     StartCoroutine(waiter());
 
                     paused = false;
@@ -179,8 +183,9 @@ public class main : MonoBehaviour
                 }
                 else if (!paused)
                 {
-                    mago.restaCooldowns();
                     mago.decision();
+                    mago.restaCooldowns();
+                    
                     StartCoroutine(waiter());
 
                     paused = true;

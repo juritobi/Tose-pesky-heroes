@@ -26,7 +26,7 @@ public class espadachinBase : npc
         personaje objetivo = FindObjectOfType<ReySlime>();
         System.Random rnd = new System.Random();
         int value = rnd.Next(1, 100);
-
+    if(activo==true){
         if (value < 6)
         {
             objetivo.cambiaHp((int)Math.Round((ad * 1.5 - objetivo.getDef()) *mhp/hp, 0), 't');
@@ -51,6 +51,9 @@ public class espadachinBase : npc
             Debug.Log("espadachin basico");
         }
         animator.transform.GetChild(0).GetComponent<Animator>().Play("espadachin", -1, 0);
+    }
+    else
+    Debug.Log("estoy congelado");
     }
 
 

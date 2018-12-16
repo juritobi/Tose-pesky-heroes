@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ReySlime : personaje {
-
+    public GameObject disparo;
 	// Use this for initialization
 	protected override void Start () {
 
@@ -12,7 +12,7 @@ public class ReySlime : personaje {
         iap = 135;
         idef = 200;
         imr = 75;
-
+        
         
         base.Start();
 
@@ -38,6 +38,8 @@ public class ReySlime : personaje {
         int aumenta = (int)(0.1 * hp);
         cambiaHp(aumenta, 'c');
         Debug.Log("devorar");
+       
+        
     }
     public void disparoMoco(npc n1)
     {
@@ -45,6 +47,7 @@ public class ReySlime : personaje {
         cambiaHp(disminuye, 't');
         n1.cambiaHp(ap, 'm');
         n1.recibeEstado("congelado", 1);
+        animacionAtaque("disparomoco");
         Debug.Log("disparomoco");
     }
     public void lluviaAcida(npc[] en)
@@ -59,6 +62,7 @@ public class ReySlime : personaje {
                 en[i].recibeEstado("quemado",1);
             }
         }
+        animacionAtaque("lluvia");
         Debug.Log("lluvia acida");
 
 
@@ -68,6 +72,7 @@ public class ReySlime : personaje {
         int disminuye = (int)(0.2 * hp);
         cambiaHp(disminuye, 'c');
         recibeEstado("habregeneracion", 4);
+        devorar();
         eliminaEstado("quemado");
         eliminaEstado("envenenado");
         eliminaEstado("congelado");
@@ -127,5 +132,13 @@ public class ReySlime : personaje {
 
         Debug.Log("mocotralleta");
 
+    }
+    public void animacionAtaque(string animacion)
+    {
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+        var go = Instantiate(disparo, pos, Quaternion.identity, transform);
+        go.GetComponent<Animator>().Play(animacion, -1, 0);
+        Destroy(go, 1);
     }
 }  
