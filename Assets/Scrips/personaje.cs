@@ -26,6 +26,12 @@ public class personaje : MonoBehaviour {
     protected List<int> cooldowns;
     protected  bool activo;
 
+    public Text hab1;
+    public Text hab2;
+    public Text hab3;
+    public Text hab4;
+    public Text hab5;
+
     public Sprite sprite;
 
 
@@ -172,6 +178,29 @@ public class personaje : MonoBehaviour {
             {
                 Destroy(textestadoobj[i]);
                 textestadoobj.RemoveAt(i);
+            }
+        }
+        else
+        {
+            if(e == "hablluvia")
+            {
+               hab1.text = turnos+"";
+            }
+            else if (e == "habregeneracion")
+            {
+               hab2.text = turnos + "";
+            }
+            else if (e == "habtemblor")
+            {
+               hab4.text = turnos + "";
+            }
+            else if (e == "habcenar")
+            {
+              hab3.text = turnos + "";
+            }
+            else if (e == "habmetralleta")
+            {
+              hab5.text = turnos + "";
             }
         }
     }
