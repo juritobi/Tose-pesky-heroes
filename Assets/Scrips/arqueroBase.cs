@@ -10,11 +10,11 @@ public class arqueroBase : npc
     protected override void Start()
     {
 
-        mhp = 180;
-        iad = 20;
+        mhp = 150;
+        iad = 50;
         iap = 0;
         idef = 20;
-        imr = 0;
+        imr = 10;
         base.Start();
     }
     public void decision()

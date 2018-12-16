@@ -8,10 +8,10 @@ public class ReySlime : personaje {
 	protected override void Start () {
 
         mhp = 2000;
-        iad = 90;
-        iap = 135;
-        idef = 200;
-        imr = 75;
+        iad = 50;
+        iap = 80;
+        idef = 20;
+        imr = 10;
         
         
         base.Start();
@@ -20,14 +20,15 @@ public class ReySlime : personaje {
 	
    
 
-    public void salpicar(npc[] en,int dan)
+    public void salpicar(int dan)
 
     {
-        int dandiv = (int)(0.1*dan);
+        npc[] all = FindObjectsOfType<npc>();
+        int dandiv = (int)(0.2*dan);
         int i;
-        for(i=0;i<en.Length;i++){
-            if(en[i].gameObject.activeSelf)
-              en[i].cambiaHp(dandiv,'t');
+        for(i=0;i<all.Length;i++){
+            if(all[i].gameObject.activeSelf)
+              all[i].cambiaHp(dandiv,'t');
         }
 
         Debug.Log("salpicar");
@@ -35,7 +36,7 @@ public class ReySlime : personaje {
     }
     public void devorar()
     {
-        int aumenta = (int)(0.1 * hp);
+        int aumenta = (int)(0.1 * mhp);
         cambiaHp(aumenta, 'c');
         Debug.Log("devorar");
        
@@ -43,16 +44,18 @@ public class ReySlime : personaje {
     }
     public void disparoMoco(npc n1)
     {
-        int disminuye = (int)(0.03 * hp);
+        int disminuye = (int)(0.03 * mhp);
         cambiaHp(disminuye, 't');
         n1.cambiaHp(ap, 'm');
         n1.recibeEstado("congelado", 1);
+
         animacionAtaque("disparomoco");
+        salpicar(ap - n1.getMr());
         Debug.Log("disparomoco");
     }
     public void lluviaAcida(npc[] en)
     {
-        int disminuye = (int)(0.07 * hp);
+        int disminuye = (int)(0.07 * mhp);
         cambiaHp(disminuye, 't');
         recibeEstado("hablluvia", 2);
         int i;
@@ -69,7 +72,7 @@ public class ReySlime : personaje {
     }
     public void regeneracion()
     {
-        int disminuye = (int)(0.2 * hp);
+        int disminuye = (int)(0.2 * mhp);
         cambiaHp(disminuye, 'c');
         recibeEstado("habregeneracion", 4);
         devorar();
@@ -88,7 +91,7 @@ public class ReySlime : personaje {
     }
     public void aCenar(npc n1)
     {
-        int aumenta = (int)(hp * 0.2);
+        int aumenta = (int)(mhp * 0.2);
         recibeEstado("habcenar", 3);
         if (n1.getHper() <= 30)
         {
@@ -96,15 +99,19 @@ public class ReySlime : personaje {
             devorar();
             n1.cambiaHp(n1.getHp(), 't');
         }
+        else
+        {
+            disparoMoco(n1);
+        }
         Debug.Log("a cenar");
     }
 
     public void golpeTemblor(npc[] en)
     {
-        int disminuye = (int)(0.4 * hp);
+        int disminuye = (int)(0.4 * mhp);
         cambiaHp(disminuye, 't');
         recibeEstado("habtemblor", 3);
-        int dano = (int)(5 * ad);
+        int dano = (int) (1.5 * ad);
         int i;
         
         for(i=0;i<en.Length;i++){
@@ -121,7 +128,7 @@ public class ReySlime : personaje {
         int i;
         recibeEstado("habmetralleta", 5);
        
-        int disminuye = (int)(0.1 * hp);
+        int disminuye = (int)(0.1 * mhp);
         cambiaHp(disminuye, 't');
         int eleccion = 0;
         for (i = 0; i < 11; i++)
