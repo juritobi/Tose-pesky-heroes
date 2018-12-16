@@ -13,7 +13,7 @@ public class magoBase : npc
         
         mhp = 150;
         iad = 0;
-        iap = 50;
+        iap = 100;
         pasivasiono=0;
         idef = 10;
         imr = 20;

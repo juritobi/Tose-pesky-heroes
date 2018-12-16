@@ -10,7 +10,7 @@ public class tankBase : npc
     {
 
         mhp = 300;
-        iad = 30;
+        iad = 50;
         iap = 0;
         idef = 40;
         imr = 20;

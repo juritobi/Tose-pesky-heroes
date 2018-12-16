@@ -11,7 +11,7 @@ public class healerBase : npc
     {
         mhp = 150;
         iad = 0;
-        iap = 30;
+        iap = 50;
         idef = 10;
         imr = 20;
         base.Start();

@@ -11,7 +11,7 @@ public class espadachinBase : npc
     {
 
         mhp = 200;
-        iad = 60;
+        iad = 100;
         iap = 0;
         idef = 20;
         imr = 10;

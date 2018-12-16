@@ -11,7 +11,7 @@ public class arqueroBase : npc
     {
 
         mhp = 150;
-        iad = 50;
+        iad = 80;
         iap = 0;
         idef = 20;
         imr = 10;
