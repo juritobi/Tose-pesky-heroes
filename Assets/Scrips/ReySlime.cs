@@ -129,7 +129,7 @@ public class ReySlime : personaje {
             eleccion = UnityEngine.Random.RandomRange(0, 5);
              en[eleccion].cambiaHp(dan,'t');
         }
-
+        animacionAtaque("mocotralleta");
         Debug.Log("mocotralleta");
 
     }
