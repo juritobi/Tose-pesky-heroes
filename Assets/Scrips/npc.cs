@@ -10,31 +10,37 @@ using UnityEngine.UI;
 
 public class npc : personaje {
 
-	public bool clicked;
+    public bool clicked;
     public CheckClicked MeAndJustMe;
     public Animator spriter;
     public String anim;
     // Use this for initialization
-    protected override void Start () {
+    protected override void Start() {
         base.Start();
     }
     protected override void Update()
     {
         base.Update();
-       // StartCoroutine(waitchange());
+        // StartCoroutine(waitchange());
         if (clicked == true)
         {
-            spriter.Play(anim, - 1, 0);
+            spriter.Play(anim, -1, 0);
         }
-       /* else
-        {
-            spriter.Play("none");
-        }*/
+        /* else
+         {
+             spriter.Play("none");
+         }*/
     }
-    public void MyDelay( int seconds ){
-  		DateTime dt = DateTime.Now + TimeSpan.FromSeconds( seconds );
-		do {} while ( DateTime.Now <dt );
-	}
+    public void MyDelay(int seconds) {
+        DateTime dt = DateTime.Now + TimeSpan.FromSeconds(seconds);
+        do { } while (DateTime.Now < dt);
+    }
+    public override void muerto()
+    {
+        ReySlime enemy = FindObjectOfType<ReySlime>();
+        base.muerto();
+        enemy.devorar();
+    }
 
 	void OnMouseDown(){
 		clicked = true;

@@ -75,7 +75,7 @@ public class ReySlime : personaje {
         int disminuye = (int)(0.2 * mhp);
         cambiaHp(disminuye, 'c');
         recibeEstado("habregeneracion", 4);
-        devorar();
+        //devorar();
         eliminaEstado("quemado");
         eliminaEstado("envenenado");
         eliminaEstado("congelado");
@@ -108,7 +108,7 @@ public class ReySlime : personaje {
 
     public void golpeTemblor(npc[] en)
     {
-        int disminuye = (int)(0.4 * mhp);
+        int disminuye = (int)(0.2 * mhp);
         cambiaHp(disminuye, 't');
         recibeEstado("habtemblor", 3);
         int dano = (int) (1.5 * ad);

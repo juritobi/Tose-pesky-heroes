@@ -161,13 +161,13 @@ public class personaje : MonoBehaviour {
     {
         for(int j = i; j > -1; j--)
         {
-            if (estados[j] == "hablluvia" || estados[j] == "habregeneracion" || estados[j] == "habcenar" || estados[j] == "habtemblor" || estados[j] == "habmetralleta")
+            if (estados[j] == "hablluvia" || estados[j] == "habcenar" || estados[j] == "habtemblor" || estados[j] == "habmetralleta")
             {
                 i--;
             }
         }
         
-        if (e != "hablluvia" && e != "habregeneracion" && e != "habcenar" && e != "habtemblor" && e != "habmetralleta")
+        if (e != "hablluvia" && e != "habcenar" && e != "habtemblor" && e != "habmetralleta")
         {
             if (action == 0)
             {
@@ -177,7 +177,7 @@ public class personaje : MonoBehaviour {
 
                 Vector3 pos = new Vector3(transform.position.x +desp, transform.position.y + 100, transform.position.z - 3);
                 textestadoobj.Add(Instantiate(textestado, pos, Quaternion.identity, transform));
-               // textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = "" + turnos;
+                textestadoobj[textestadoobj.Count - 1].GetComponent<TextMesh>().text = "" + turnos;
                 textestadoobj[textestadoobj.Count - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite= sprite ;
             }
             else if (action == 1)
@@ -190,28 +190,26 @@ public class personaje : MonoBehaviour {
                 textestadoobj.RemoveAt(i);
             }
         }
-        else
+        if (e == "habregeneracion")
         {
-            if(e == "hablluvia")
-            {
-               hab1.text = turnos+"";
-            }
-            else if (e == "habregeneracion")
-            {
-               hab2.text = turnos + "";
-            }
-            else if (e == "habtemblor")
-            {
-               hab4.text = turnos + "";
-            }
-            else if (e == "habcenar")
-            {
-              hab3.text = turnos + "";
-            }
-            else if (e == "habmetralleta")
-            {
-              hab5.text = turnos + "";
-            }
+            hab2.text = turnos + "";
+        }
+        else if (e == "hablluvia")
+        {
+            hab1.text = turnos+"";
+        }
+        
+        else if (e == "habtemblor")
+        {
+            hab4.text = turnos + "";
+        }
+        else if (e == "habcenar")
+        {
+            hab3.text = turnos + "";
+        }
+        else if (e == "habmetralleta")
+        {
+            hab5.text = turnos + "";
         }
     }
 
@@ -227,7 +225,7 @@ public class personaje : MonoBehaviour {
         }
         if (estados.Contains("habregeneracion"))
         {            
-            cambiaHp((int)(0.1 * mhp), 'c');
+            cambiaHp((int)(0.05 * mhp), 'c');
         }
 
         for (int i =0;i< cooldowns.Count; i++)
@@ -279,7 +277,7 @@ public class personaje : MonoBehaviour {
         ad = ad + c;
     }
 
-    public void muerto()
+    public virtual void muerto()
     {
         barH.gameObject.SetActive(false);
         this.gameObject.SetActive(false);
