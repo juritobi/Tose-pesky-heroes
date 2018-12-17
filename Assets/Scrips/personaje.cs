@@ -159,6 +159,14 @@ public class personaje : MonoBehaviour {
     
     public void muestraEstado(string e, int turnos, int action, int i)
     {
+        for(int j = i; j > -1; j--)
+        {
+            if (estados[j] == "hablluvia" || estados[j] == "habregeneracion" || estados[j] == "habcenar" || estados[j] == "habtemblor" || estados[j] == "habmetralleta")
+            {
+                i--;
+            }
+        }
+        
         if (e != "hablluvia" && e != "habregeneracion" && e != "habcenar" && e != "habtemblor" && e != "habmetralleta")
         {
             if (action == 0)
